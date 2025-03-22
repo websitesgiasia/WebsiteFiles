@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SGI Asia</title>
+    <link rel="stylesheet" href="services.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./logo.PNG" alt="logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Activities</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <h1>Services</h1>
+                <div class="hero-placeholder"></div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+            <div class="container">
+                <div class="carousel-container">
+                    <div class="carousel">
+                        <!-- Service Cards -->
+                        <div class="service-card" data-index="0">
+                            <h2>Mentoring Learning</h2>
+                            <p>Our Mentored Learning system helps busy people learn flexibly and affordably.</p>
+                        </div>
+                        <div class="service-card" data-index="1">
+                            <h2>Penetration Testing</h2>
+                            <p>We provide penetration testing training with the latest security tools.</p>
+                        </div>
+                        <div class="service-card" data-index="2">
+                            <h2>Security Awareness</h2>
+                            <p>Security awareness training for corporate and individuals.</p>
+                        </div>
+                        <div class="service-card" data-index="3">
+                            <h2>Cloud Security</h2>
+                            <p>Learn how to protect cloud environments effectively.</p>
+                        </div>
+                        <div class="service-card" data-index="4">
+                            <h2>Incident Response</h2>
+                            <p>Master incident handling and response techniques.</p>
+                        </div>
+                        <div class="service-card" data-index="5">
+                            <h2>Network Security</h2>
+                            <p>Protect your network from cyber threats.</p>
+                        </div>
+                        <div class="service-card" data-index="6">
+                            <h2>Cyber Threat Intelligence</h2>
+                            <p>Stay ahead with proactive threat intelligence.</p>
+                        </div>
+                        <div class="service-card" data-index="7">
+                            <h2>Compliance & Auditing</h2>
+                            <p>Ensure compliance with security regulations.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="navigation-dots"></div>
+            </div>
+        </section>
+        
+            <!-- Navigation Dots -->
+            <div class="slider-dots"></div>
+        </div>
+    </section>
+
+
+         <!-- Partners Section -->
+    <section class="partners">
+        <div class="container">
+            <h2>Our Partners</h2>
+            <div class="partner-logos">
+                <img src="./Partners/Partner1.png" alt="IT Security">
+                <img src="./Partners/Partner2.png" alt="SysArmy">
+                <img src="./Partners/Partner3.png" alt="Multipolar">
+                <img src="./Partners/Partner4.png" alt="TDW">
+                <img src="./Partners/Partner5.png" alt="Active Learning">
+                <img src="./Partners/Partner6.png" alt="AsiaTech">
+                <img src="./Partners/Partner7.png" alt="Elixir">
+                <img src="./Partners/Partner8.png" alt="Komaxcel">
+                <img src="./Partners/Partner9.png" alt="Secure Wipes">
+                <img src="./Partners/Partner10.png" alt="IT Solutions">
+                <img src="./Partners/Partner11.png" alt="Technologies">
+                <img src="./Partners/Partner12.png" alt="CompTIA">
+            </div>
+        </div>
+    </section>
+    </main>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="./logo.PNG" alt="SGI Tech Logo">
+                </div>
+                <div class="social-media">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>Fixed Line: <br>+62 21 5701634 <br>+62 21 5701635</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-mobile"></i>
+                        <p>Mobile: <br>+62 811 991391 <br>+62 858 13256600 <br>+62 812 89812337</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>18th Floor, Wisma Bumiputera <br>Jl. Jend Sudirman Kav. 75 <br>Jakarta Selatan 12910 <br>Indonesia</p>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright © 2025 PT. SysTech Global Informasi</p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const carousel = document.querySelector(".carousel");
+        const cards = document.querySelectorAll(".service-card");
+        const dotsContainer = document.querySelector(".navigation-dots");
+
+        let currentIndex = 1; // Start with second card centered
+        const cardsPerView = 3;
+        const totalCards = cards.length;
+        
+        function updateCarousel() {
+            let offset = -currentIndex * (cards[0].offsetWidth + 20);
+            carousel.style.transform = `translateX(${offset}px)`;
+
+            // Adjust scale for center card
+            cards.forEach((card, index) => {
+                card.style.transform = index === currentIndex ? "scale(1.1)" : "scale(1)";
+                card.style.opacity = index === currentIndex ? "1" : "0.6";
+            });
+
+            document.querySelectorAll(".dot").forEach((dot, index) => {
+                dot.classList.toggle("active", index === currentIndex);
+            });
+        }
+
+        function createDots() {
+            const totalGroups = Math.ceil(totalCards / cardsPerView);
+            for (let i = 0; i < totalGroups; i++) {
+                const dot = document.createElement("div");
+                dot.classList.add("dot");
+                dot.dataset.index = i * cardsPerView;
+                dot.addEventListener("click", function () {
+                    currentIndex = parseInt(this.dataset.index);
+                    updateCarousel();
+                });
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        createDots();
+        updateCarousel();
+
+        setInterval(() => {
+            currentIndex = (currentIndex + cardsPerView) % totalCards;
+            updateCarousel();
+        }, 3000);
+    });
+    
+    
+    
+</script>
+
+    
+</html>
