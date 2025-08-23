@@ -949,18 +949,27 @@ body.menu-open {
   display: grid;
   grid-template-columns: auto auto;
   justify-content: center;
-  gap: 2rem;
   column-gap: 15rem;
   margin-top: 4rem;
   margin-bottom: 2rem;
 }
 
-.client-logos img {
+.clients img {
   max-height: 70px;
   object-fit: contain;
-  display: block;
   margin: 0 auto;
 }
+
+.client-project {
+  display: grid;
+  gap: 2rem;
+}
+
+.client-IT-Training {
+  display: grid;
+  gap: 2rem;
+}
+
 
 @media (max-width: 768px) {
   .clients {
