@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SGI</title>
+    <link rel="stylesheet" href="activity.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  
+  <!-- Navbar -->
+    <nav class="main-nav">
+    <img src="./assets/logo1.png" alt="Logo" class="nav-logo" />
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="navbar" id="navbar">
+      <li><a href="home.html">HOME</a></li>
+      <li><a href="about_us.html">ABOUT US</a></li>
+      <li><img src="./assets/logo1.png" alt="Logo"></li>
+      <li><a href="services.html">SERVICES</a></li>
+      <li><a href="activity.html">ACTIVITIES</a></li>
+    </ul>
+
+    <div class="off-screen-menu" id="offScreenMenu">
+    <div class="menu-content">
+      <a href="home.html">HOME</a>
+      <a href="about_us.html">ABOUT US</a>
+      <a href="services.html">SERVICES</a>
+      <a href="activity.html">ACTIVITIES</a>
+    </div>
+
+    <div class="menu-contact">
+    <div class="line-bot"></div>
+      <p class="contact-prompt">
+        Still need more info? Reach out to us or <a href="home.html#contact" id="contact-link">contact us <strong>here</strong></a>
+      </p>
+      
+      <div class="contact-phones">
+      <div class="phone-item">
+        <i class="fas fa-phone-alt"></i>
+        <a href="tel:+62811991391">+62 811-991-391</a>
+      </div>
+      <div class="phone-item">
+        <i class="fas fa-phone-alt"></i>
+        <a href="tel:+6285813256600">+62 858-1325-6600</a>
+      </div>
+    </div>
+
+      <div class="social-items">
+        <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.instagram.com/sgiasia/%3Fhl%3Den&ved=2ahUKEwjow7vluomOAxUuzDgGHawTM9UQFnoECBoQAQ&usg=AOvVaw1C7ceb-rfjYs8QSzpPeU4h" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.facebook.com/p/SGI-Asia-100069771894509/&ved=2ahUKEwjX6pWV45-OAxVYyzgGHerlCEEQFnoECBIQAQ&usg=AOvVaw2eC6YP_pIXmNjTH6B6nJuw"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+  </div>
+
+  </nav>
+
+    
+
+    <!-- Events Section -->
+    <section class="activities-section">
+    <div class="activities-top">
+    <h2>All Activities</h2>
+    <div class="filters">
+        <select id="categoryFilter">
+        <option value="">All Categories</option>
+        <option value="seminar">Seminar</option>
+        <option value="program">Program</option>
+        <option value="partnership">Partnership</option>
+        </select>
+
+        <select id="yearFilter">
+        <option value="">All Years</option>
+        <option value="2017">2017</option>
+        <option value="2018">2018</option>
+        </select>
+
+        <select id="locationFilter">
+        <option value="">All Locations</option>
+        <option value="indonesia">Indonesia</option>
+        <option value="philippine">Philippine</option>
+        </select>
+    </div>
+    </div>
+    <hr class="line">
+
+
+    <div class="cards-container" id="activitiesContainer">
+    </div>
+    </section>
+
+    
+    <section class="partners">
+        <div class="container">
+            <h2>Our Partners</h2>
+            <div class="partner-logos">
+                <a href="https://itsecurityct.com" target="_blank"><img src="./Partners/Partner1.png" alt="IT Security"></a>
+                <a href="https://www.sysarmy.net" target="_blank"><img src="./Partners/Partner2.png" alt="SysArmy"></a>
+                <a href="https://www.multipolar.com/en/homepage/" target="_blank"><img src="./Partners/Partner3.png" alt="Multipolar"></a>
+                <a href="https://www.tuv.com/indonesia/en/" target="_blank"><img src="./Partners/Partner4.png" alt="TDW"></a>
+                <a href="https://www.gkphilippines.com" target="_blank"><img src="./Partners/Partner5.png" alt="Global KMC"></a>
+                <a href="https://activelearning.ph" target="_blank"><img src="./Partners/Partner6.png" alt="Active Learning"></a>
+                <a href="https://www.ishantech.net" target="_blank"><img src="./Partners/Partner7.png" alt="Ishan Tech"></a>
+                <a href="https://www.mybusybee.net/about-us/" target="_blank"><img src="./Partners/Partner8.png" alt="Busybee"></a>
+                <a href="https://www.maxvec.com" target="_blank"><img src="./Partners/Partner9.png" alt="MaxVec"></a>
+                <a href="https://www.securwires.com" target="_blank"><img src="./Partners/Partner10.png" alt="Secure Wires"></a>
+                <a href="https://solutions-it.net" target="_blank"><img src="./Partners/Partner11.png" alt="IT Solutions"></a>
+                <a href="https://euodoo.com.ph" target="_blank"><img src="./Partners/Partner12.png" alt="Euodoo Technologies"></a>
+            </div>
+        </div>
+    </section>
+
+    <script src="activity.js"></script>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+            <div class="footer-logo">
+                <img src="./assets/logo1.PNG" alt="SGI Tech Logo" />
+            </div>
+            <div class="vertical-line"></div>
+            <div class="social-media">
+                <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.instagram.com/sgiasia/%3Fhl%3Den&ved=2ahUKEwjow7vluomOAxUuzDgGHawTM9UQFnoECBoQAQ&usg=AOvVaw1C7ceb-rfjYs8QSzpPeU4h" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.facebook.com/p/SGI-Asia-100069771894509/&ved=2ahUKEwjX6pWV45-OAxVYyzgGHerlCEEQFnoECBIQAQ&usg=AOvVaw2eC6YP_pIXmNjTH6B6nJuw"><i class="fab fa-facebook"></i></a>
+            </div>
+            </div>
+            <div class="footer-right">
+            <div class="contact-info-scroll">
+            <div class="contact-info">
+                <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <p>
+                    <strong>Fixed Line:</strong><br />
+                    +62 21 5701634<br />
+                    +62 21 5701635
+                </p>
+                </div>
+                <div class="contact-item">
+                <i class="fas fa-mobile-alt"></i>
+                <p>
+                    <strong>Mobile:</strong><br />
+                    +62 811 991391<br />
+                    +62 858 13256600<br />
+                    +62 812 89812337
+                </p>
+                </div>
+                <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>
+                    <strong>18th Floor, Wisma Bumiputera</strong><br />
+                    Jl. Jend Sudirman Kav. 75<br />
+                    Jakarta Selatan 12910<br />
+                    Indonesia
+                </p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2025 PT. SysTech Global Informasi</p>
+        </div>
+      </footer>
+</body>
+</html>

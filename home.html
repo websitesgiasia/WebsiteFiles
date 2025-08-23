@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SGI Secure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="home.css" />
+
+</head>
+<div id="toast" class="toast hidden"></div>
+<body>
+    <header class="hero">
+
+    <!-- Navbar -->
+    <nav class="main-nav">
+    <img src="./assets/logo1.png" alt="Logo" class="nav-logo" />
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <ul class="navbar" id="navbar">
+      <li><a href="home.html">HOME</a></li>
+      <li><a href="about_us.html">ABOUT US</a></li>
+      <li><img src="./assets/logo1.png" alt="Logo"></li>
+      <li><a href="services.html">SERVICES</a></li>
+      <li><a href="activity.html">ACTIVITIES</a></li>
+    </ul>
+
+    <div class="off-screen-menu" id="offScreenMenu">
+    <div class="menu-content">
+      <a href="home.html">HOME</a>
+      <a href="about_us.html">ABOUT US</a>
+      <a href="services.html">SERVICES</a>  
+      <a href="activity.html">ACTIVITIES</a>
+    </div>
+
+    <div class="menu-contact">
+    <div class="line-bot"></div>
+      <p class="contact-prompt">
+        Still need more info? Reach out to us or <a href="home.html#contact" id="contact-link">contact us <strong>here</strong></a>
+      </p>
+      
+      <div class="contact-phones">
+      <div class="phone-item">
+        <i class="fas fa-phone-alt"></i>
+        <a href="tel:+62811991391">+62 811-991-391</a>
+      </div>
+      <div class="phone-item">
+        <i class="fas fa-phone-alt"></i>
+        <a href="tel:+6285813256600">+62 858-1325-6600</a>
+      </div>
+    </div>
+
+      <div class="social-items">
+        <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.instagram.com/sgiasia/%3Fhl%3Den&ved=2ahUKEwjow7vluomOAxUuzDgGHawTM9UQFnoECBoQAQ&usg=AOvVaw1C7ceb-rfjYs8QSzpPeU4h" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.facebook.com/p/SGI-Asia-100069771894509/&ved=2ahUKEwjX6pWV45-OAxVYyzgGHerlCEEQFnoECBIQAQ&usg=AOvVaw2eC6YP_pIXmNjTH6B6nJuw"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+  </div>
+  </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-slider">
+    <div class="slides-wrapper">
+
+      <div class="slide" style="background-image: url('./assets/herooo.jpg');">
+      <div class="overlay dark-gradient">
+        <div class="content hero-centered">
+          <div class="hero-text-block">
+            <h1 class="hero-title">Your Digital Shield</h1>
+            <p class="hero-subtitle">
+              From cyber threats to system resilience—SGI Asia secures your business with tailored, forward-thinking solutions.
+            </p>
+            <div class="hero-cta-group">
+              <a href="services.html" class="btn">Explore Services</a>
+              <a href="#contact" class="btn-outline">Talk to Us</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+      <div class="slide" style="background-image: url('./assets/hero1.png');">
+      <div class="overlay">
+        <div class="content">
+          <div class="left">
+            <h1>A Decade of<br>Cybersecurity Expertise</h1>
+          </div>
+          <div class="right">
+            <p>
+              With over 10 years of protecting digital infrastructure, SGI Asia combines deep industry knowledge 
+              with cutting-edge technologies to deliver unmatched security solutions across Asia.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide" style="background-image: url('Activities/CSAS.jpg');">
+      <div class="overlay">
+        <div class="content">
+          <div class="left">
+            <h1>Empowering Through<br>Knowledge & Action</h1>
+            <p>
+              From cybersecurity seminars to in-depth technical training, our educational programs are designed to build real-world skills and awareness for your engineers.
+            </p>
+            <a href="activity.html" class="btn-outline">View Activities</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+
+    <div class="indicators">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+    </header>
+
+      <!-- About Us Section -->
+       <section class="about-us" id="about">
+      <div class="about-content">
+        <h2>About Us</h2>
+        <p>
+          SGI Asia is an IT company founded by Indonesian professionals. We provide trusted tech services to clients across Asia, the Middle East, and North Africa. Our work includes learning support, cybersecurity, data recovery, and IT training. We also offer virtual labs and expert guidance. SGI Asia helps businesses grow with smart and secure digital solutions.
+        </p>
+        <button class="learn-more-btn" onclick="location.href='about_us.html'">Learn More</button>
+      </div>
+      <div class="verticalline"></div>
+      <div class="about-stats">
+        <div class="stat-box">
+          <h3>1000+</h3>
+          <p>Completed<br>Services</p>
+        </div>
+        <div class="stat-box">
+          <h3>12</h3>
+          <p>Years<br>Experience</p>
+        </div>
+        <div class="stat-box">
+          <h3>50+</h3>
+          <p>Satisfied<br>Clients</p>
+        </div>
+        <div class="stat-box">
+          <h3>2</h3>
+          <p>Official Awards</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="awards" id="awards">
+      <div class="vector"></div>
+
+      <h2>Our Awards</h2>
+      <h4>AWARD JOURNEY</h4>
+
+      <div class="award-images">
+        <div class="award-card-static">
+          <span class="badge-icon"><img src="assets/iconaward.png" alt="Badge Icon"></span>
+          <a href="https://www.comptia.org/en/" target="_blank"><img src="Awards/comptia.png" alt="CompTIA Logo" class="award-img"></a>
+          <p class="caption">Official The CompTIA Authorized Partner (CAP).</p>
+        </div>
+
+        <div class="award-card-static">
+          <span class="badge-icon"><img src="assets/iconaward.png" alt="Badge Icon"></span>
+          <img src="Awards/icdp.png" alt="ICDP Logo" class="award-img">
+          <p class="caption">
+            INFOSHIELD COMPETENCY DEVELOPMENT PROGRAM<br>
+            Information Security | Information Assurance | IT Governance
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose" id="why-choose">
+      <div class="why-choose-left"></div>
+      <div class="why-choose-right">
+        <h2>Why should you choose us?</h2>
+        <div class="cards">
+          <div class="card">
+            <div class="card-top">
+              <div class="icon-badge">✔</div>
+              <div class="card-content">
+                <h3 class="card-title">Proven Expertise</h3>
+                <p class="card-text">
+                  With years of experience in cybersecurity and IT solutions, we provide reliable, industry-leading services tailored to your needs.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-top">
+              <div class="icon-badge">✔</div>
+              <div class="card-content">
+                <h3 class="card-title">Client-Centric Approach</h3>
+                <p class="card-text">
+                  We prioritize your security goals, delivering customized strategies that align with your business objectives.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-top">
+              <div class="icon-badge">✔</div>
+              <div class="card-content">
+                <h3 class="card-title">Comprehensive Solutions</h3>
+                <p class="card-text">
+                  From penetration testing to digital forensics and IT training, we offer end-to-end security solutions to protect and optimize your business.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-top">
+              <div class="icon-badge">✔</div>
+              <div class="card-content">
+                <h3 class="card-title">Cost-Effective Solutions</h3>
+                <p class="card-text">
+                  We provide high-quality cybersecurity services designed to maximize protection while ensuring efficiency and value for your investment.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section class="contact-section" id="contact">
+    <h2>Get in Touch with us!</h2>
+    <div class="contact-container">
+      <div class="contact-text">
+        <h3>We are here to provide the support you need!</h3>
+        <p>
+          Reach out to us for a more in-depth discussion about your requirements. Fill the contact form here to let us know what you need! We will contact you as soon as possible.
+        </p>
+        <div class="contact-item">
+          <a href="https://wa.me/6287882843428?text=Halo%20SGI%20Asia%2C%20saya%20ingin%20bertanya%20lebih%20lanjut." 
+            target="_blank" 
+            class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+          </a>
+        </div>
+      </div>
+      
+     
+
+      <form id="contact-form" class="contact-form">
+        <input type="text" name="name" placeholder="Name / Company Name" required />
+        <input type="tel" name="phone" placeholder="Phone Number" pattern="\d{7,15}" oninvalid="this.setCustomValidity('Please enter a valid phone number (7–15 digits).')"
+            oninput="this.setCustomValidity('')"required />
+        <input type="email" name="email" placeholder="Email" required />
+        <select name="subject" required>
+          <option value="" disabled selected>Subject / Topic</option>
+          <option value="Service Inquiries">Services Inquiries</option>
+          <option value="Security Consultation">Security Consultation</option>
+          <option value="Questions">Questions</option>
+          <option value="Feedback">Feedback</option>
+          <option value="Others">Others...</option>
+        </select>
+        <textarea name="message" placeholder="Write your message here..." required></textarea>
+        <div class="g-recaptcha" data-sitekey="6LdBlHMrAAAAAFQwzZtxYoqXI1uua-0M_RWjFCXo"></div>
+        <button type="submit" id="submit-btn">SEND MESSAGE</button>
+      </form>
+    </div>
+  </section>
+
+    <!-- Partners Section -->
+    <section class="partners">
+        <div class="container">
+            <h2>Our Partners</h2>
+            <div class="partner-logos">
+                <a href="https://itsecurityct.com" target="_blank"><img src="./Partners/Partner1.png" alt="IT Security"></a>
+                <a href="https://www.sysarmy.net" target="_blank"><img src="./Partners/Partner2.png" alt="SysArmy"></a>
+                <a href="https://www.multipolar.com/en/homepage/" target="_blank"><img src="./Partners/Partner3.png" alt="Multipolar"></a>
+                <a href="https://www.tuv.com/indonesia/en/" target="_blank"><img src="./Partners/Partner4.png" alt="TDW"></a>
+                <a href="https://www.gkphilippines.com" target="_blank"><img src="./Partners/Partner5.png" alt="Global KMC"></a>
+                <a href="https://activelearning.ph" target="_blank"><img src="./Partners/Partner6.png" alt="Active Learning"></a>
+                <a href="https://www.ishantech.net" target="_blank"><img src="./Partners/Partner7.png" alt="Ishan Tech"></a>
+                <a href="https://www.mybusybee.net/about-us/" target="_blank"><img src="./Partners/Partner8.png" alt="Busybee"></a>
+                <a href="https://www.maxvec.com" target="_blank"><img src="./Partners/Partner9.png" alt="MaxVec"></a>
+                <a href="https://www.securwires.com" target="_blank"><img src="./Partners/Partner10.png" alt="Secure Wires"></a>
+                <a href="https://solutions-it.net" target="_blank"><img src="./Partners/Partner11.png" alt="IT Solutions"></a>
+                <a href="https://euodoo.com.ph" target="_blank"><img src="./Partners/Partner12.png" alt="Euodoo Technologies"></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-left">
+            <div class="footer-logo">
+                <img src="./assets/logo1.PNG" alt="SGI Tech Logo" />
+            </div>
+            <div class="vertical-line"></div>
+            <div class="social-media">
+                <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.instagram.com/sgiasia/%3Fhl%3Den&ved=2ahUKEwjow7vluomOAxUuzDgGHawTM9UQFnoECBoQAQ&usg=AOvVaw1C7ceb-rfjYs8QSzpPeU4h" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href=""><i class="fab fa-twitter"></i></a>
+                <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.facebook.com/p/SGI-Asia-100069771894509/&ved=2ahUKEwjX6pWV45-OAxVYyzgGHerlCEEQFnoECBIQAQ&usg=AOvVaw2eC6YP_pIXmNjTH6B6nJuw"><i class="fab fa-facebook"></i></a>
+            </div>
+            </div>
+            <div class="footer-right">
+            <div class="contact-info-scroll">
+            <div class="contact-info">
+                <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <p>
+                    <strong>Fixed Line:</strong><br />
+                    +62 21 5701634<br />
+                    +62 21 5701635
+                </p>
+                </div>
+                <div class="contact-item">
+                <i class="fas fa-mobile-alt"></i>
+                <p>
+                    <strong>Mobile:</strong><br />
+                    +62 811 991391<br />
+                    +62 858 13256600<br />
+                    +62 812 89812337
+                </p>
+                </div>
+                <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>
+                    <strong>18th Floor, Wisma Bumiputera</strong><br />
+                    Jl. Jend Sudirman Kav. 75<br />
+                    Jakarta Selatan 12910<br />
+                    Indonesia
+                </p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Copyright © 2025 PT. SysTech Global Informasi</p>
+        </div>
+      </footer>
+
+    <script src="home.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function() {
+    emailjs.init("GKRcf7iNb2u_dnHS_");
+  })();
+
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+
+  function showToast(message, type = "success") {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.className = `toast show ${type}`;
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => {
+        toast.className = 'toast hidden';
+      }, 1800);
+    }, 3000);
+  }
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const captchaResponse = grecaptcha.getResponse();
+    if (!captchaResponse) {
+      showToast("Please complete the reCAPTCHA before submitting.", "error");
+      return; 
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending, please wait...";
+
+    emailjs.sendForm('service_d4n8rgs', 'template_hdn79e5', this)
+      .then(() => {
+        showToast("Message sent successfully! We will reach out to you soon!", "success");
+        grecaptcha.reset();
+      })
+      .catch(() => {
+        showToast("Failed to send message. Please try again.", "error");
+      })
+      .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "SEND MESSAGE";
+        form.reset();
+      });
+  });
+</script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+</body>
+</html>
