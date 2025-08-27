@@ -67,7 +67,7 @@
     <section class="hero-slider">
     <div class="slides-wrapper">
 
-      <div class="slide" style="background-image: url('herooo.jpg');">
+      <div class="slide" style="background-image: url('./assets/herooo.jpg');">
       <div class="overlay dark-gradient">
         <div class="content hero-centered">
           <div class="hero-text-block">
@@ -85,7 +85,7 @@
 
     </div>
 
-      <div class="slide" style="background-image: url('hero1.png');">
+      <div class="slide" style="background-image: url('./assets/hero1.png');">
       <div class="overlay">
         <div class="content">
           <div class="left">
@@ -130,7 +130,7 @@
       <div class="about-content">
         <h2>About Us</h2>
         <p>
-          PT. SysTech Global Informasi with the Global brand name “SGI Asia” is an IT company founded by Indonesian professionals. We provide trusted tech services to clients across Asia, the Middle East, and North Africa. Our work includes learning support, cybersecurity, data recovery, and IT training. We also offer virtual labs and expert guidance. SGI Asia helps businesses grow with smart and secure digital solutions.
+          SGI Asia is an IT company founded by Indonesian professionals. We provide trusted tech services to clients across Asia, the Middle East, and North Africa. Our work includes learning support, cybersecurity, data recovery, and IT training. We also offer virtual labs and expert guidance. SGI Asia helps businesses grow with smart and secure digital solutions.
         </p>
         <button class="learn-more-btn" onclick="location.href='about_us.html'">Learn More</button>
       </div>
@@ -164,13 +164,13 @@
 
       <div class="award-images">
         <div class="award-card-static">
-          <span class="badge-icon"><img src="iconaward.png" alt="Badge Icon"></span>
+          <span class="badge-icon"><img src="assets/iconaward.png" alt="Badge Icon"></span>
           <a href="https://www.comptia.org/en/" target="_blank"><img src="Awards/comptia.png" alt="CompTIA Logo" class="award-img"></a>
           <p class="caption">Official The CompTIA Authorized Partner (CAP).</p>
         </div>
 
         <div class="award-card-static">
-          <span class="badge-icon"><img src="iconaward.png" alt="Badge Icon"></span>
+          <span class="badge-icon"><img src="assets/iconaward.png" alt="Badge Icon"></span>
           <img src="Awards/icdp.png" alt="ICDP Logo" class="award-img">
           <p class="caption">
             INFOSHIELD COMPETENCY DEVELOPMENT PROGRAM<br>
@@ -235,33 +235,6 @@
       </div>
     </section>
 
-    <!-- Testimonial Section -->
-    <section class="testimonial">
-      <h1>Training Testimonial</h1>
-      
-      <div class="testimonial-container">
-        
-        <!-- Left: Text -->
-        <div class="testimonial-text">
-          <div class="quote-box" id="quoteBox">
-            <p class="quote">
-              <span class="quote-mark">“</span>
-              Penjelasan dari Pak Semi ini sangat mudah dimengerti karena bapak ini membawakannya dengan bahasa sangat simpel, mudah dipahami dan juga disertai dengan contoh-contoh yang sangat relatable di kehidupan sehari-hari.
-              <span class="quote-mark">”</span>
-            </p>
-            <p class="author">Raden Ayu Intan Rizky Amelia<br><span>OJK</span></p>
-          </div>
-        </div>
-
-        <!-- Right: Video -->
-        <div class="testimonial-video">
-          <video controls autoplay loop playsinline>
-            <source src="TestimoniSGI2.mov" type="video/quicktime">
-          </video>
-        </div>
-      </div>
-    </section>
-
     <!-- Contact Us Section -->
     <section class="contact-section" id="contact">
     <h2>Get in Touch with us!</h2>
@@ -271,7 +244,16 @@
         <p>
           Reach out to us for a more in-depth discussion about your requirements. Fill the contact form here to let us know what you need! We will contact you as soon as possible.
         </p>
+        <div class="contact-item">
+          <a href="https://wa.me/6287882843428?text=Halo%20SGI%20Asia%2C%20saya%20ingin%20bertanya%20lebih%20lanjut." 
+            target="_blank" 
+            class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+          </a>
+        </div>
       </div>
+      
+     
 
       <form id="contact-form" class="contact-form">
         <input type="text" name="name" placeholder="Name / Company Name" required />
@@ -292,58 +274,6 @@
       </form>
     </div>
   </section>
-
-  <!-- Frequently Asked Questions-->
-   <hr class="faq-separator">
-<section id="faq">
-  <h2>Frequently Asked Questions</h2>
-
-  <div class="faq-row">
-    <div class="faq-col">
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Lorem ipsum dolor sit amet?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Donec vitae tortor in nunc bibendum porta.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Lorem ipsum?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.
-        </div>
-      </div>
-    </div>
-
-    <div class="faq-col">
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Lorem ipsum dolor?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ornare, metus at consequat pulvinar.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <div class="faq-question">
-          <span>Lorem ipsum dolor sit amet?</span>
-          <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
     <!-- Partners Section -->
     <section class="partners">
@@ -371,7 +301,7 @@
         <div class="footer-container">
             <div class="footer-left">
             <div class="footer-logo">
-                <img src="./logo1.PNG" alt="SGI Tech Logo" />
+                <img src="./assets/logo1.PNG" alt="SGI Tech Logo" />
             </div>
             <div class="vertical-line"></div>
             <div class="social-media">
@@ -468,6 +398,3 @@
   });
 </script>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-</body>
-</html>
