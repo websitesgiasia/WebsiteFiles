@@ -110,7 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // === Modal Logic untuk detail service ===
     const modal = document.getElementById("serviceModal");
     const modalTitle = document.getElementById("modal-title");
     const modalDesc = document.getElementById("modal-desc");
@@ -118,16 +117,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const serviceCards = document.querySelectorAll(".service-card");
 
-    // Data detail tambahan per service
     const serviceDetails = {
-        "Penetration Testing": "Detail lengkap tentang Penetration Testing. Kami melakukan pengujian menyeluruh menggunakan metode manual maupun automated tools untuk memastikan keamanan aplikasi, jaringan, dan sistem.",
-        "Secure Code Review": "Detail lengkap tentang Secure Code Review. Proses ini mencakup analisis manual dan otomatis pada source code untuk mendeteksi celah keamanan lebih dalam.",
-        "Digital Forensics": "Detail lengkap tentang Digital Forensics. Kami membantu mengungkap bukti digital, investigasi insiden, dan pemulihan data pasca serangan.",
-        "Red Teaming": "Detail lengkap tentang Red Teaming. Tim kami meniru perilaku attacker sungguhan dengan skenario real-world untuk menguji ketahanan organisasi.",
-        "vCISO": "Detail lengkap tentang vCISO. Kami berperan sebagai Chief Information Security Officer virtual untuk mengarahkan strategi keamanan organisasi.",
-        "Purple Teaming": "Detail lengkap tentang Purple Teaming. Kolaborasi antara Red Team & Blue Team untuk meningkatkan deteksi dan respon ancaman.",
-        "IS/IT Audit": "Detail lengkap tentang IS/IT Audit. Audit sistem informasi untuk menilai efektivitas kontrol, kepatuhan regulasi, dan efisiensi operasional.",
-        "SOC Workforce": "Detail lengkap tentang SOC Workforce. Layanan staffing & training SOC agar organisasi siap 24/7 dalam monitoring ancaman."
+        "Penetration Testing": "Penetration-test, atau security assessment, adalah evaluasi aktif terhadap keamanan sistem informasi dengan cara langsung menguji sistem untuk menemukan celah keamanan, bukan sekadar audit teoretis. Hasil evaluasi akan disusun dalam laporan dan dipresentasikan pada sesi debriefing, di mana pertanyaan dapat dijawab serta strategi perbaikan dibahas secara terbuka.",
+        "Secure Code Review": "Code review adalah pemeriksaan sistematis terhadap kode sumber untuk menemukan dan memperbaiki kesalahan yang terlewat pada tahap awal pengembangan, sehingga meningkatkan kualitas perangkat lunak sekaligus keterampilan pengembang. Proses ini bisa dilakukan melalui pair programming, walkthrough, atau inspeksi formal, serta efektif mencegah kerentanan umum seperti format string exploit, race condition, memory leak, dan buffer overflow. Dengan dukungan repositori online seperti Git atau Subversion serta alat kolaborasi khusus, code review menjadi lebih efisien, sementara perangkat lunak otomatis juga membantu memeriksa kerentanan dalam skala besar, yang menurut studi VDC Research sudah digunakan oleh 17,6% engineer perangkat lunak tertanam dan diperkirakan akan mencapai 23,7% dalam dua tahun ke depan.",
+        "Digital Forensics": "Computer forensics, atau ilmu forensik komputer, adalah cabang dari digital forensics yang berfokus pada bukti hukum yang terdapat di komputer maupun media penyimpanan digital. Tujuannya adalah memeriksa media digital secara forensik untuk mengidentifikasi, melestarikan, memulihkan, menganalisis, serta menyajikan fakta maupun opini terkait informasi yang ditemukan. Teknik ini digunakan untuk mencari, menyimpan, dan menganalisis data pada sistem komputer guna menemukan bukti potensial bagi proses hukum, dengan metode yang serupa dengan investigasi di TKP tetapi memiliki karakteristik digital yang unik. Saat ini, investigasi forensik komputer didukung oleh berbagai alat modern seperti AccessData Forensics Toolkit (FTK), Guidance Software EnCase, dan X-Ways Forensics.",
+        "Red Teaming": "Red Teaming adalah simulasi serangan siber yang dirancang untuk meniru perilaku penyerang nyata dengan skenario dunia nyata. Tujuan utamanya adalah menguji sejauh mana sistem, proses, dan manusia dalam organisasi dapat mendeteksi, merespons, serta memitigasi serangan. Layanan ini membantu organisasi memahami titik lemah yang tidak terlihat melalui audit tradisional, sekaligus memberikan gambaran realistis tentang ketahanan keamanan secara menyeluruh.",
+        "vCISO": "vCISO (Virtual Chief Information Security Officer) adalah layanan strategis di mana kami berperan sebagai CISO virtual untuk mengarahkan strategi keamanan informasi organisasi. Kami menyediakan panduan kebijakan keamanan, manajemen risiko, kepatuhan regulasi, hingga perencanaan investasi keamanan tanpa harus menanggung biaya penuh seorang CISO permanen. Layanan ini ideal untuk organisasi yang ingin memiliki arah keamanan siber yang matang dengan fleksibilitas tinggi.",
+        "Purple Teaming": "Purple Teaming adalah pendekatan kolaboratif antara Red Team (penyerang) dan Blue Team (defender) untuk meningkatkan kemampuan deteksi serta respons ancaman siber. Alih-alih bekerja secara terpisah, kedua tim berbagi informasi secara real-time sehingga organisasi dapat memvalidasi efektivitas kontrol keamanan dan memperkuat kemampuan pertahanan. Dengan metode ini, deteksi ancaman lebih cepat dan strategi mitigasi lebih efektif.",
+        "IS/IT Audit": "IS/IT Audit adalah proses pemeriksaan menyeluruh terhadap sistem informasi dan infrastruktur teknologi organisasi. Audit ini menilai efektivitas kontrol keamanan, kepatuhan terhadap regulasi, serta efisiensi operasional TI. Melalui audit, organisasi dapat mengidentifikasi celah kepatuhan, potensi risiko teknologi, dan peluang untuk meningkatkan tata kelola TI, sehingga tercapai keseimbangan antara keamanan, efisiensi, dan kepatuhan.",
+        "SOC Workforce": "SOC Workforce adalah layanan yang menyediakan tenaga ahli dan program pelatihan untuk membangun atau memperkuat Security Operations Center (SOC). Kami memastikan organisasi memiliki tim yang kompeten, siap 24/7 dalam memantau, mendeteksi, dan merespons ancaman siber. Layanan ini mencakup rekrutmen, pelatihan berkelanjutan, hingga simulasi insiden, sehingga organisasi dapat menjaga kesiapan dan daya tanggap terhadap serangan secara optimal."
     };
 
     serviceCards.forEach(card => {

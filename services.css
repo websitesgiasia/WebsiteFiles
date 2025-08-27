@@ -925,7 +925,8 @@ body.menu-open {
 
 /* Clients Section */
 .clients {
-  padding: 2rem 2rem;
+  padding: 4rem 2rem;
+  border-radius: 12px;
   text-align: center;
   opacity: 0;
   transform: translateY(50px);
@@ -937,37 +938,119 @@ body.menu-open {
   transform: translateY(0);
 }
 
-.clients h2{
-  font-size: 2.5rem;
+.clients h2 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
 }
 
-.clients p{
-  font-size: 1rem;
+.clients h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #0077b6;
+  margin: 0.5rem auto 0;
+  border-radius: 3px;
 }
 
 .client-logos {
-  display: grid;
-  grid-template-columns: auto auto;
+  display: flex;
   justify-content: center;
-  column-gap: 15rem;
+  align-items: flex-start;
+  gap: 3rem;
   margin-top: 4rem;
   margin-bottom: 2rem;
 }
 
+.client-section {
+  border: none;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.client-section h3 {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.client-logos-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.client-logos-wrapper img {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.client-logos-wrapper img:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+.client-logos-wrapper img:nth-child(even) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.client-logos-wrapper img {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.client-logos-wrapper img:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.client-project,
+.client-IT-Training {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;    
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  max-width: 600px;
+}
+
+.client-project h3,
+.client-IT-Training h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #333;
+  font-weight: 600;
+}
+
+
+.client-logos::before {
+  content: "";
+  width: 2px;
+  background: #ccc;
+  margin: 0 1.5rem;
+}
+  
 .clients img {
   max-height: 70px;
+  max-width: 150px;
   object-fit: contain;
-  margin: 0 auto;
-}
-
-.client-project {
-  display: grid;
-  gap: 2rem;
-}
-
-.client-IT-Training {
-  display: grid;
-  gap: 2rem;
 }
 
 
