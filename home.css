@@ -12,7 +12,6 @@ body {
   color: #333;
 }
 
-/* NAVIGATION BAR */
 nav {
   position: fixed;
   top: 0;
@@ -25,10 +24,6 @@ nav {
   justify-content: space-between; 
   align-items: center;
   padding: 0 20px; 
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: all 0.4s ease;
 }
 
@@ -37,7 +32,6 @@ nav.scrolled {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* NAV LINKS */
 .navbar {
   display: flex;
   justify-content: center;
@@ -53,12 +47,6 @@ nav.scrolled {
 
 .navbar li {
   width: auto; 
-  gap: 150px;
-  transition: color 0.3s ease;
-}
-
-.navbar li {
-  width: 100px;
   height: 100%;
   margin: 0 5px;
   display: flex;
@@ -105,14 +93,17 @@ nav.scrolled .navbar a:hover {
   .nav-logo {
     position: absolute; 
     left: 20px;
-    top: 18px;
+    top: 20px;
+    height: 40px;
   }
   .navbar {
     display: none; 
   }
-
   .navbar img {
     display: none;
+  }
+  .nav-logo img{
+    height: 10px;
   }
 }
 
@@ -130,7 +121,6 @@ nav.scrolled .navbar a:hover {
   height: 30px;
   justify-content: center;
   align-items: center;
-  position: absolute;
 }
 
 .hamburger span {
@@ -175,7 +165,6 @@ nav.scrolled .hamburger span {
 }
 
 /* Mobile Menu */
-/* MOBILE MENU */
 .off-screen-menu {
   display: flex;
   flex-direction: column;
@@ -219,8 +208,6 @@ body.menu-open {
   bottom: 20px;
   width: 100%;
   text-align: center;
-  width: 100%; 
-  text-align: center; 
 }
 
 .contact-prompt {
@@ -267,20 +254,12 @@ body.menu-open {
 .contact-phones a:active {
   color: #333;
   text-decoration: none;
-}
-
-.contact-phones a, 
-.contact-phones a:visited,
-.contact-phones a:active {
-  color: #333;         
-  text-decoration: none;  
   font-weight: 500;
   font-size: 1rem;
 }
 
 .contact-phones a:hover {
   color: #007bff;
-  color: #007bff;      
 }
 
 .social-items {
@@ -331,20 +310,7 @@ body.menu-open {
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
-  }
-}
-
-@media (max-width: 1200px) {
-  .navbar {
-    display: none;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .nav-logo {
-    display: block;
+    margin-top: 10px;
   }
 }
 
@@ -1233,8 +1199,14 @@ body {
 .testimonial {
   background: #fff;
   padding: 30px 0px;
-  /* text-align: center; */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+}
 
+.testimonial.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .testimonial h1 {
@@ -1250,7 +1222,6 @@ body {
   margin: 0 auto;     
   max-width: 1100px;
   width: 100%;
-  /* gap: 40px; */
 }
 
 .testimonial-text {
@@ -1309,12 +1280,14 @@ body {
   box-shadow: 0px 4px 15px rgba(0,0,0,0.15);
 }
 
-#quoteContent {
+#quoteContent,
+#quoteAuthor {
   opacity: 1;
   transition: opacity 0.8s ease-in-out;
 }
 
-#quoteContent.fade-out {
+#quoteContent.fade-out,
+#quoteAuthor.fade-out {
   opacity: 0;
 }
 
@@ -1397,8 +1370,6 @@ body {
 .whatsapp-btn i {
   font-size: 1.2rem;
 }
-
-
 
 .contact-form {
   flex: 1 1 300px;
@@ -1540,6 +1511,14 @@ body {
   font-family: Arial, sans-serif;
   padding: 10px 40px;
   background: #fff;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+}
+
+#faq.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 #faq h2 {

@@ -30,8 +30,7 @@ faqs.forEach(faq => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Animate sections on scroll
-  const sections = document.querySelectorAll("#contact, #awards, #about, #why-choose");
+  const sections = document.querySelectorAll("#contact, #awards, #about, #why-choose, #testimonial, #faq");
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -42,7 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }, { threshold: 0.2 });
   sections.forEach(section => observer.observe(section));
 
-  // Navbar scroll effect
   const nav = document.querySelector("nav");
   window.addEventListener("scroll", function () {
     if (window.scrollY > window.innerHeight * 0.001) {
@@ -52,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Hamburger menu toggle
   const hamburger = document.getElementById("hamburger");
   const offScreenMenu = document.getElementById("offScreenMenu");
 
@@ -62,7 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.classList.toggle("menu-open");
   });
 
-  // Close menu on any link click inside .menu-content
   document.querySelectorAll(".menu-content a").forEach(link => {
     link.addEventListener("click", () => {
       hamburger.classList.remove("active");
@@ -71,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Close menu when clicking "contact us here" link on responsive
   const contactLink = document.getElementById('contact-link');
   if (contactLink) {
     contactLink.addEventListener('click', () => {
@@ -81,3 +76,36 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+const testimonials = [
+      {
+      text: "Mr. Semi’s explanation was very easy to understand because he delivered it in such a simple, straightforward way, and even included examples that were really relatable to everyday life.",
+      author: "Raden Ayu Intan Rizky Amelia",
+      company: "OJK"
+    },  
+      {
+      text: "This CISA training really complements our role as supervisors in the financial services industry, especially in understanding how the industry manages IT risks.",
+      author: "Aditya Pamudji",
+      company: "OJK"
+    }
+  ];
+
+  let index = 0;
+  const quoteText = document.getElementById("quoteText");
+  const quoteAuthor = document.getElementById("quoteAuthor");
+  const quoteContent = document.getElementById("quoteContent");
+
+  setInterval(() => {
+    quoteContent.classList.add("fade-out");
+    quoteAuthor.classList.add("fade-out");
+
+    setTimeout(() => {
+      index = (index + 1) % testimonials.length;
+
+      quoteText.textContent = testimonials[index].text;
+      quoteAuthor.innerHTML = `${testimonials[index].author}<br><span>${testimonials[index].company}</span>`;
+
+      quoteContent.classList.remove("fade-out");
+      quoteAuthor.classList.remove("fade-out");
+    }, 800); 
+  }, 7000);

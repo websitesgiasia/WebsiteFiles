@@ -85,7 +85,6 @@ cardList.addEventListener('touchend', () => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Animate sections on scroll
   const sections = document.querySelectorAll("#about ,#achievements, #timeline, #leadership, #vismis");
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -97,7 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }, { threshold: 0.2 });
   sections.forEach(section => observer.observe(section));
 
-  // Hamburger menu toggle
   const hamburger = document.getElementById("hamburger");
   const offScreenMenu = document.getElementById("offScreenMenu");
 
@@ -107,7 +105,6 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.classList.toggle("menu-open");
   });
 
-  // Close menu on any link click inside .menu-content
   document.querySelectorAll(".menu-content a").forEach(link => {
     link.addEventListener("click", () => {
       hamburger.classList.remove("active");
@@ -116,7 +113,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Close menu when clicking "contact us here" link on responsive
   const contactLink = document.getElementById('contact-link');
   if (contactLink) {
     contactLink.addEventListener('click', () => {

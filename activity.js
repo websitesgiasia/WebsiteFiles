@@ -57,10 +57,10 @@ const activities = [
   },
   {
     title: "Cyber Security Connect 2024",
-    location: "-----",
-    category: "Expo",
+    location: "Jakarta, Indonesia",
+    category: "expo",
     year: "2024",
-    date: "-----",
+    date: "09 October 2024",
     image: "Activities/Cyber Security Connect 2024.jpg"
   },
   {
@@ -164,20 +164,17 @@ locationFilter.addEventListener('change', filterActivities);
 
 renderActivities(activities);
 
-//Hamburger on navbar
 document.addEventListener("DOMContentLoaded", function () {
   const nav = document.querySelector("nav");
   const hamburger = document.getElementById("hamburger");
   const offScreenMenu = document.getElementById("offScreenMenu");
 
-  // Hamburger toggle
   hamburger.addEventListener("click", function () {
     hamburger.classList.toggle("active");
     offScreenMenu.classList.toggle("active");
     document.body.classList.toggle("menu-open");
   });
 
-  // Close menu when clicking "contact us here" link on responsive
   document.querySelectorAll(".menu-content a").forEach(link => {
     link.addEventListener("click", () => {
       hamburger.classList.remove("active");

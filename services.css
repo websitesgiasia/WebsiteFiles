@@ -26,48 +26,23 @@ nav {
   align-items: center;
   padding: 0 20px;
   transition: all 0.4s ease;
-  font-family: 'Segoe UI', sans-serif;
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
-  color: #333;
 }
 
-/* NAVIGATION BAR */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  background-color: white;
-  z-index: 999;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.4s ease;
-}
-
-nav.scrolled {
-  background-color: rgb(255, 255, 255);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-/* NAV LINKS */
 .navbar {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   list-style: none;
-  gap: 150px;
+  gap: 100px; 
   transition: color 0.3s ease;
+  margin: 0; 
+  padding: 0; 
+  margin-right: 50px;
 }
 
 .navbar li {
-  width: 100px;
+  width: auto; 
   height: 100%;
   margin: 0 5px;
   display: flex;
@@ -100,26 +75,31 @@ nav.scrolled .navbar a:hover {
 }
 
 .nav-logo {
-  height: 45px;
+  height: 70px;
   width: auto;
-  position: absolute;
-  left: 20px;
-  top: 18px;
   z-index: 1001;
-  display: none;
+  display: block; 
 }
 
 @media (max-width: 768px) {
-  .nav-logo {
-    display: block;
+  nav {
+    justify-content: center; 
+    padding: 0;
   }
-
+  .nav-logo {
+    position: absolute; 
+    left: 20px;
+    top: 18px;
+    height: 40px;
+  }
+  .navbar {
+    display: none; 
+  }
   .navbar img {
     display: none;
   }
 }
 
-/* HAMBURGER MENU BUTTON */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -133,7 +113,6 @@ nav.scrolled .navbar a:hover {
   height: 30px;
   justify-content: center;
   align-items: center;
-  position: absolute;
 }
 
 .hamburger span {
@@ -177,7 +156,7 @@ nav.scrolled .hamburger span {
   transform: translateX(-50%) rotate(-45deg);
 }
 
-/* MOBILE MENU */
+/* Mobile Menu */
 .off-screen-menu {
   display: flex;
   flex-direction: column;
@@ -202,6 +181,7 @@ nav.scrolled .hamburger span {
 
 body.menu-open {
   overflow: hidden;
+
 }
 
 .menu-content {
@@ -218,8 +198,8 @@ body.menu-open {
 .menu-contact {
   position: fixed;
   bottom: 20px;
-  width: 100%; 
-  text-align: center; 
+  width: 100%;
+  text-align: center;
 }
 
 .contact-prompt {
@@ -261,17 +241,17 @@ body.menu-open {
   height: 18px;
 }
 
-.contact-phones a, 
+.contact-phones a,
 .contact-phones a:visited,
 .contact-phones a:active {
-  color: #333;            
-  text-decoration: none;  
+  color: #333;
+  text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
 }
 
 .contact-phones a:hover {
-  color: #007bff;        
+  color: #007bff;
 }
 
 .social-items {
@@ -307,15 +287,15 @@ body.menu-open {
   padding: 10px 10px;
 }
 
-.menu-content a:nth-child(1) { animation: linkFade 0.5s ease forwards 0.2s; }
-.menu-content a:nth-child(2) { animation: linkFade 0.5s ease forwards 0.3s; }
-.menu-content a:nth-child(3) { animation: linkFade 0.5s ease forwards 0.4s; }
-.menu-content a:nth-child(4) { animation: linkFade 0.5s ease forwards 0.5s; }
-
 .line-bot {
   border-bottom: 1px solid rgb(192, 192, 192);
   box-shadow: 1px 1px 1px #e2e1e1;
 }
+
+.menu-content a:nth-child(1) { animation: linkFade 0.5s ease forwards 0.2s; }
+.menu-content a:nth-child(2) { animation: linkFade 0.5s ease forwards 0.3s; }
+.menu-content a:nth-child(3) { animation: linkFade 0.5s ease forwards 0.4s; }
+.menu-content a:nth-child(4) { animation: linkFade 0.5s ease forwards 0.5s; }
 
 @keyframes linkFade {
   to {
@@ -324,17 +304,10 @@ body.menu-open {
   }
 }
 
-@media (max-width: 1200px) {
-  .navbar {
-    display: none; 
-  }
-
+@media (max-width: 768px) {
   .hamburger {
     display: flex;
-  }
-
-  .nav-logo {
-    display: block;
+    margin-top: 10px;
   }
 }
 
@@ -686,6 +659,7 @@ body.menu-open {
   max-width: 600px;
   text-align: left;
   animation: fadeIn 0.3s ease-in-out;
+  text-align: justify;
 }
 
 .modal-content h3 {
@@ -708,8 +682,6 @@ body.menu-open {
   from { opacity: 0; transform: translateY(-20px);}
   to { opacity: 1; transform: translateY(0);}
 }
-
-
 
 .training {
   position: relative; 

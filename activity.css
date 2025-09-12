@@ -90,6 +90,7 @@ nav.scrolled .navbar a:hover {
     position: absolute; 
     left: 20px;
     top: 18px;
+    height: 40px;
   }
   .navbar {
     display: none;
@@ -286,6 +287,11 @@ body.menu-open {
   padding: 10px 10px;
 }
 
+.line-bot {
+  border-bottom: 1px solid rgb(192, 192, 192);
+  box-shadow: 1px 1px 1px #e2e1e1;
+}
+
 .menu-content a:nth-child(1) { animation: linkFade 0.5s ease forwards 0.2s; }
 .menu-content a:nth-child(2) { animation: linkFade 0.5s ease forwards 0.3s; }
 .menu-content a:nth-child(3) { animation: linkFade 0.5s ease forwards 0.4s; }
@@ -301,6 +307,7 @@ body.menu-open {
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
+    margin-top: 10px;
   }
 }
 
@@ -450,6 +457,11 @@ body.menu-open {
 .tag.partnership {
   background-color: #dfe9ff;
   color: #3366cc;
+}
+
+.tag.training {
+  background-color: #1b63ff;
+  color: #ffffff;
 }
 
 @media (max-width: 783px) {
@@ -646,6 +658,7 @@ footer {
   background-color: #266EB6;
   color: white;
   background-image: url('footervector.png'); 
+  background-image: url('assets/footervector.png'); 
   background-repeat: no-repeat;
   background-position: right top;
   background-size: fill;
@@ -816,18 +829,18 @@ footer {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap; 
-    overflow-x: auto;   
+    overflow-x: auto;
     gap: 25px;
   }
 
   .contact-item {
     min-width: 200px;
-    flex-shrink: 0; 
+    flex-shrink: 0;
   }
 
   .contact-info-scroll {
     overflow-x: scroll; 
-    -webkit-overflow-scrolling: auto;
+    -webkit-overflow-scrolling: auto; 
     scrollbar-width: thin; 
     scrollbar-color: #aaa #eee; 
   }
@@ -857,6 +870,7 @@ footer {
     background-color: #eee;
   }
 }
+
 
 @keyframes fadeSlideUp {
   from {
