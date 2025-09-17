@@ -1236,7 +1236,7 @@ body {
 }
 
 .quote-box {
-  background: #f7f7f7;
+  background: #f4f4f4;
   padding: 25px 30px;
   border-radius: 15px;
   box-shadow: 0px 4px 12px rgba(0,0,0,0.08);
@@ -1291,6 +1291,69 @@ body {
   opacity: 0;
 }
 
+@media (max-width: 992px) {
+  .testimonial-container {
+    flex-direction: column;
+    text-align: center;
+    /* padding: 0 20px; */
+  }
+
+  .testimonial-text {
+    margin-bottom: 25px;
+    padding: 20px 20px
+  }
+
+  .testimonial-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .quote-box {
+    padding: 20px;
+  }
+
+  .quote {
+    font-size: 0.95rem;
+    text-align: justify;
+  }
+
+  .testimonial-video {
+    width: 75%;
+    background-color: transparent; 
+    padding: 0;
+  }
+
+  .testimonial-video video {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .testimonial h1 {
+    font-size: 1.5rem;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .testimonial-text h2 {
+    font-size: 1.2rem;
+  }
+
+  .quote {
+    font-size: 0.9rem;
+  }
+
+  .author {
+    font-size: 0.9rem;
+  }
+
+  .testimonial-video video {
+    max-width: 100%;
+  }
+}
+
+
 /* Contact Us Section */
 .contact-section {
   background-color: #ffffff;
@@ -1310,6 +1373,7 @@ body {
   font-size: 3rem;
   margin-bottom: 2rem;
   font-weight: 100;
+  margin-top: 0;
   font-family: 'Montserrat', sans-serif;
   color: #333;
 }
@@ -1462,6 +1526,10 @@ body {
 }
 
 @media (max-width: 768px) {
+  .contact-section h2 {
+    font-size: 35px;
+  }
+
   .contact-container {
     flex-direction: column;
     align-items: center;
@@ -1523,15 +1591,17 @@ body {
 
 #faq h2 {
   font-size: 2rem;
+  font-family: 'Montserrat', sans-serif;
   margin-bottom: 20px;
+  font-weight: 200;
 }
 
-.faq-separator {
+.separator {
   border: none;
   height: 1px;
   background: #ddd;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin: 40px 0;
+  margin: 10px 0;
 }
 
 .faq-row {
@@ -1591,6 +1661,42 @@ body {
 .faq-item.active .faq-answer {
   max-height: 200px;
   padding: 15px 20px;
+}
+
+@media (max-width: 900px) {
+  #faq h2 {
+    font-size: 25px;
+  }
+
+  .faq-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .faq-col {
+    flex: 1 1 calc(50% - 20px);
+    gap: 10px;
+  }
+
+  .faq-question {
+    font-size: 13px;
+  }
+
+  .faq-answer {
+    font-size: 12px;
+    text-align: justify;
+  }
+}
+
+@media (max-width: 600px) {
+  .faq-row {
+    flex-direction: column;
+  }
+
+  .faq-col {
+    flex: 1 1 100%;
+  }
 }
 
 /* Partners Section */
