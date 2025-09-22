@@ -78,34 +78,48 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const testimonials = [
-      {
-      text: "Mr. Semi’s explanation was very easy to understand because he delivered it in such a simple, straightforward way, and even included examples that were really relatable to everyday life.",
-      author: "Raden Ayu Intan Rizky Amelia",
-      company: "OJK"
-    },  
-      {
-      text: "This CISA training really complements our role as supervisors in the financial services industry, especially in understanding how the industry manages IT risks.",
-      author: "Aditya Pamudji",
-      company: "OJK"
+    {
+        text: "Mr. Semi's explanation was very easy to understand because he delivered it in such a simple, straightforward way, and even included examples that were really relatable to everyday life.",
+        author: "Raden Ayu Intan Rizky Amelia",
+        company: "OJK"
+    },
+    {
+        text: "This CISA training really complements our role as supervisors in the financial services industry, especially in understanding how the industry manages IT risks.",
+        author: "Aditya Pamudji",
+        company: "OJK"
     }
-  ];
+];
 
-  let index = 0;
-  const quoteText = document.getElementById("quoteText");
-  const quoteAuthor = document.getElementById("quoteAuthor");
-  const quoteContent = document.getElementById("quoteContent");
+let currentIndek = 0;
+const quoteText = document.getElementById("quoteText");
+const quoteAuthor = document.getElementById("quoteAuthor");
+const quoteContent = document.getElementById("quoteContent");
+const dot = document.querySelectorAll('.testimonial-dot');
 
-  setInterval(() => {
+function updateTestimonial(index) {
     quoteContent.classList.add("fade-out");
     quoteAuthor.classList.add("fade-out");
+    
+    dot.forEach(dot => dot.classList.remove('active'));
+    dot[index].classList.add('active');
 
     setTimeout(() => {
-      index = (index + 1) % testimonials.length;
+        currentIndex = index;
+        quoteText.textContent = testimonials[index].text;
+        quoteAuthor.innerHTML = `${testimonials[index].author}<br><span>${testimonials[index].company}</span>`;
+        quoteContent.classList.remove("fade-out");
+        quoteAuthor.classList.remove("fade-out");
+    }, 400);
+}
 
-      quoteText.textContent = testimonials[index].text;
-      quoteAuthor.innerHTML = `${testimonials[index].author}<br><span>${testimonials[index].company}</span>`;
+setInterval(() => {
+    const nextIndex = (currentIndek + 1) % testimonials.length;
+    updateTestimonial(nextIndex);
+}, 7000);
 
-      quoteContent.classList.remove("fade-out");
-      quoteAuthor.classList.remove("fade-out");
-    }, 800); 
-  }, 7000);
+dot.forEach(dot => {
+    dot.addEventListener('click', () => {
+        const index = parseInt(dot.dataset.index);
+        updateTestimonial(index);
+    });
+});

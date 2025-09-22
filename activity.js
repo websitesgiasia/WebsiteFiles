@@ -118,31 +118,112 @@ const categoryFilter = document.getElementById('categoryFilter');
 const yearFilter = document.getElementById('yearFilter');
 const locationFilter = document.getElementById('locationFilter');
 
+function hasIncompleteInfo(activity) {
+  return activity.location.includes('-') || 
+         activity.date.includes('-') || 
+         activity.year.includes('-');
+}
+
 function renderActivities(data) {
   container.innerHTML = '';
+  
+  // Check if all filters are empty (showing all)
+  const showingAll = categoryFilter.value === '' && 
+                    yearFilter.value === '' && 
+                    locationFilter.value === '';
+  
   if (data.length === 0) {
     container.innerHTML = '<p>No activities match your filters.</p>';
     return;
   }
 
-  data.forEach((act, index) => {
-  const card = document.createElement('div');
-  card.className = 'event-card';
-  card.style.animationDelay = `${index * 100}ms`; 
-  card.innerHTML = `
-    <img src="${act.image}" alt="event image" class="event-image" />
-    <div class="event-info">
-      <div class="event-meta">
-      <p class="event-location"><i class="fa fa-map-marker-alt"></i> ${act.location}</p>
-      <span class="event-date"><i class="fa fa-calendar-alt"></i> ${act.date}</span>
-    </div>
-      <h3>${act.title}</h3>
-      <div class="tag-wrapper">
-        <button class="tag ${act.category}">${act.category}</button>
+  // Separate activities into complete and incomplete
+  const completeActivities = data.filter(act => !hasIncompleteInfo(act));
+  const incompleteActivities = data.filter(act => hasIncompleteInfo(act));
+
+  let index = 0;
+
+  // If showing all, render complete activities first
+  if (showingAll) {
+    completeActivities.forEach((act) => {
+      const card = document.createElement('div');
+      card.className = 'event-card';
+      card.style.animationDelay = `${index * 100}ms`; 
+      card.innerHTML = `
+        <img src="${act.image}" alt="event image" class="event-image" />
+        <div class="event-info">
+          <div class="event-meta">
+          <p class="event-location"><i class="fa fa-map-marker-alt"></i> ${act.location}</p>
+          <span class="event-date"><i class="fa fa-calendar-alt"></i> ${act.date}</span>
         </div>
-    </div>`;
-    container.appendChild(card);
+          <h3>${act.title}</h3>
+          <div class="tag-wrapper">
+            <button class="tag ${act.category}">${act.category}</button>
+            </div>
+        </div>`;
+      container.appendChild(card);
+      index++;
     });
+
+    // Add separator if there are incomplete activities
+    if (incompleteActivities.length > 0) {
+      const separator = document.createElement('div');
+      separator.className = 'others-separator';
+      separator.innerHTML = `
+        <div class="separator-line"></div>
+        <span class="separator-text">Others</span>
+        <div class="separator-line"></div>
+      `;
+      container.appendChild(separator);
+
+      // Render incomplete activities
+      incompleteActivities.forEach((act) => {
+        const card = document.createElement('div');
+        card.className = 'event-card';
+        card.style.animationDelay = `${index * 100}ms`; 
+        card.innerHTML = `
+          <img src="${act.image}" alt="event image" class="event-image" />
+          <div class="event-info">
+            <div class="event-meta">
+            </div>
+            <h3>${act.title}</h3>
+            <div class="tag-wrapper">
+              <button class="tag ${act.category}">${act.category}</button>
+              </div>
+          </div>`;
+        container.appendChild(card);
+        index++;
+      });
+    }
+  } else {
+    // When filters are applied, show all matching activities without separation
+    data.forEach((act) => {
+      const card = document.createElement('div');
+      card.className = 'event-card';
+      card.style.animationDelay = `${index * 100}ms`; 
+      
+      // For incomplete activities, hide location and date icons/text if they contain dashes
+      const locationDisplay = hasIncompleteInfo(act) && act.location.includes('-') ? 
+        '' : `<p class="event-location"><i class="fa fa-map-marker-alt"></i> ${act.location}</p>`;
+      const dateDisplay = hasIncompleteInfo(act) && act.date.includes('-') ? 
+        '' : `<span class="event-date"><i class="fa fa-calendar-alt"></i> ${act.date}</span>`;
+      
+      card.innerHTML = `
+        <img src="${act.image}" alt="event image" class="event-image" />
+        <div class="event-info">
+          <div class="event-meta">
+          ${locationDisplay}
+          ${dateDisplay}
+        </div>
+          <h3>${act.title}</h3>
+          <div class="tag-wrapper">
+            <button class="tag ${act.category}">${act.category}</button>
+            </div>
+        </div>`;
+      container.appendChild(card);
+      index++;
+    });
+  }
 }
 
 function filterActivities() {

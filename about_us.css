@@ -1,7 +1,7 @@
 * {
     margin: 0;
     box-sizing: border-box;
-  }
+}
 
 html {
   scroll-behavior: smooth;
@@ -186,7 +186,6 @@ nav.scrolled .hamburger span {
 
 body.menu-open {
   overflow: hidden;
-
 }
 
 .menu-content {
@@ -384,7 +383,6 @@ body.menu-open {
   top: -150px;
   right: -50px;
   width: 150px;
-  
   border-radius: 12px;
   z-index: 2;
 }
@@ -665,6 +663,7 @@ body.menu-open {
 .stats > div:last-child {
   border-right: none;
 }
+
 @media (max-width: 768px) {
   .achievements {
     height: auto;
