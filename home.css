@@ -1843,13 +1843,12 @@ body {
   overflow: hidden;
   background: #fafafa;
   padding: 0 20px;
-  transition: max-height 0.4s ease, padding 0.4s ease, background 0.3s;
+  transition: max-height 0.25s ease, padding 0.4s ease;
   font-size: 0.95rem;
   line-height: 1.5;
 }
 
 .faq-item.active .faq-answer {
-  max-height: 500px; 
   padding: 15px 20px;
   background: #fdfdfd;
 }

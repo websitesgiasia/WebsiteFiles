@@ -24,10 +24,25 @@ setInterval(nextSlide, 4000);
 const faqs = document.querySelectorAll('.faq-item');
 
 faqs.forEach(faq => {
-  faq.querySelector('.faq-question').addEventListener('click', () => {
-    faq.classList.toggle('active');
+  const question = faq.querySelector('.faq-question');
+  const answer = faq.querySelector('.faq-answer');
+
+  question.addEventListener('click', () => {
+    if (faq.classList.contains('active')) {
+      answer.style.maxHeight = null;
+      faq.classList.remove('active');
+    } else {
+      faqs.forEach(f => {
+        f.classList.remove('active');
+        f.querySelector('.faq-answer').style.maxHeight = null;
+      });
+
+      faq.classList.add('active');
+      answer.style.maxHeight = answer.scrollHeight + "px";
+    }
   });
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const sections = document.querySelectorAll("#contact, #awards, #about, #why-choose, #testimonial, #faq");
@@ -104,7 +119,7 @@ function updateTestimonial(index) {
     dot[index].classList.add('active');
 
     setTimeout(() => {
-        currentIndex = index;
+        currentIndek = index;
         quoteText.textContent = testimonials[index].text;
         quoteAuthor.innerHTML = `${testimonials[index].author}<br><span>${testimonials[index].company}</span>`;
         quoteContent.classList.remove("fade-out");

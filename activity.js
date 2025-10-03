@@ -65,50 +65,50 @@ const activities = [
   },
   {
     title: "Digitalization and Cyber Security Awareness",
-    location: "---------",
+    location: "-",
     category: "seminar",
-    year: "-------",
-    date: "--------",
+    year: "-",
+    date: "-",
     image: "Activities/Digitalization and Cyber Security Awareness.jpg"
   },
   {
     title: "Basic SQL and Operation Training",
-    location: "-----",
+    location: "-",
     category: "training",
-    year: "-----",
-    date: "-----",
+    year: "-",
+    date: "-",
     image: "Activities/Training Basic SQL and Operation.jpg"
   },
   {
     title: "CISA Public Training",
-    location: "---------",
+    location: "-",
     category: "training",
-    year: "-------",
-    date: "--------",
+    year: "-",
+    date: "-",
     image: "Activities/Training CISA_Public(2).jpg"
   },
   {
     title: "CISA Training at OJK(Otoritas Jasa Keuangan)",
-    location: "-----",
+    location: "-",
     category: "training",
-    year: "-----",
-    date: "-----",
+    year: "-",
+    date: "-",
     image: "Activities/Training CISA.jpg"
   },
   {
     title: "Cyber Security for DPO Training",
-    location: "---------",
+    location: "-",
     category: "training",
-    year: "-------",
-    date: "--------",
+    year: "-",
+    date: "-",
     image: "Activities/Training Cyber Security for DPO.jpg"
   },
   {
     title: "DevSecOps Training",
-    location: "---------",
+    location: "-",
     category: "training",
-    year: "-------",
-    date: "--------",
+    year: "-",
+    date: "-",
     image: "Activities/Training DevSecOps.jpg"
   }
 ];
@@ -126,8 +126,7 @@ function hasIncompleteInfo(activity) {
 
 function renderActivities(data) {
   container.innerHTML = '';
-  
-  // Check if all filters are empty (showing all)
+
   const showingAll = categoryFilter.value === '' && 
                     yearFilter.value === '' && 
                     locationFilter.value === '';
@@ -137,13 +136,11 @@ function renderActivities(data) {
     return;
   }
 
-  // Separate activities into complete and incomplete
   const completeActivities = data.filter(act => !hasIncompleteInfo(act));
   const incompleteActivities = data.filter(act => hasIncompleteInfo(act));
 
   let index = 0;
 
-  // If showing all, render complete activities first
   if (showingAll) {
     completeActivities.forEach((act) => {
       const card = document.createElement('div');
@@ -165,7 +162,6 @@ function renderActivities(data) {
       index++;
     });
 
-    // Add separator if there are incomplete activities
     if (incompleteActivities.length > 0) {
       const separator = document.createElement('div');
       separator.className = 'others-separator';
@@ -176,7 +172,6 @@ function renderActivities(data) {
       `;
       container.appendChild(separator);
 
-      // Render incomplete activities
       incompleteActivities.forEach((act) => {
         const card = document.createElement('div');
         card.className = 'event-card';
@@ -196,13 +191,11 @@ function renderActivities(data) {
       });
     }
   } else {
-    // When filters are applied, show all matching activities without separation
     data.forEach((act) => {
       const card = document.createElement('div');
       card.className = 'event-card';
       card.style.animationDelay = `${index * 100}ms`; 
-      
-      // For incomplete activities, hide location and date icons/text if they contain dashes
+
       const locationDisplay = hasIncompleteInfo(act) && act.location.includes('-') ? 
         '' : `<p class="event-location"><i class="fa fa-map-marker-alt"></i> ${act.location}</p>`;
       const dateDisplay = hasIncompleteInfo(act) && act.date.includes('-') ? 
