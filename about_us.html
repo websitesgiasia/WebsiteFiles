@@ -149,7 +149,6 @@
           <div><h3>12</h3><p>Years of experience</p></div>
           <div><h3>2</h3><p>Professional Awards</p></div>
         </div>
-        
   </section>
 
   <!-- Timeline Section -->
@@ -223,71 +222,70 @@
       </section>
   
   <!-- Leadership Quotes Section -->
-  <div class="quote" id="leadership">
-      <div class="label-vertical">Behind the Vision</div>
-      <div class="card">
-        <div class="card-wrapper">
-          <div class="card-list" id="cardList">
-            <!-- CARD 1 -->
-            <div class="card-item">
-              <div class="image-section">
-                <img src="./assets/assets_5.png" alt="Semi Yulianto" />
-                <p class="caption">Semi Yulianto<br><span>CEO & Founder</span></p>
+  <section class="quote-section" id="quote">
+    <div class="section-label">Behind the Vision</div>
+    
+    <div class="container">
+      <div class="carousel-wrapper">
+        <div class="carousel-track" id="track">
+          
+          <div class="quote-card active">
+            <div class="card-left">
+              <div class="leader-image-wrapper">
+                <img src="./assets/assets_5.png" alt="Semi Yulianto" class="leader-image">
               </div>
-              <div class="content-section">
-                <div class="quote-icon">“</div>
-                <h1>Welcome to Our Company</h1>
-                <p>
-                  Welcome to PT. Systech Global Informasi (SGI Asia), your trusted
-                  partner in cybersecurity and IT solutions. Since 2013, we have
-                  been committed to delivering cutting-edge security, technology,
-                  and expertise to help organizations navigate the evolving digital
-                  landscape.We strive to providing innovative, tailored solutions that
-                  safeguard businesses and data. Thank you for choosing us—we look
-                  forward to securing your digital future.
-                </p>
-                <div class="quote-close">”</div>
-                <img src="./assets/assets_16.png" alt="blue-box" class="blue-box">
+              <div class="leader-details">
+                <div class="leader-name">Semi Yulianto</div>
+                <div class="leader-title">CEO & Founder</div>
               </div>
             </div>
-
-            <!-- CARD 2 -->
-            <div class="card-item">
-              <div class="image-section">
-                <img src="./assets/assets_4.png" alt="Jane Doe" />
-                <p class="caption">Anwar Anugerah<br><span>Director</span></p>
-              </div>
-              <div class="content-section">
-                <div class="quote-icon">“</div>
-                <h1>Director’s Message</h1>
-                <p>
-                  Cybersecurity is not just about defense—it’s about resilience, trust, and staying ahead of evolving threats. 
-                  We are dedicated to providing expert-driven solutions that help businesses safeguard their digital assets, ensure compliance, and strengthen their security posture.
-                  Through proactive strategies, continuous innovation, and a commitment to excellence, 
-                  we empower organizations to operate with confidence in an increasingly complex cyber landscape. 
-                </p>
-                <div class="quote-close">”</div>
-                <img src="./assets/assets_16.png" alt="blue-box" class="blue-box">
-              </div>
+            <div class="card-right">
+              <div class="quote-icon">"</div>
+              <h2 class="quote-title">Welcome to Our Company</h2>
+              <p class="quote-text">
+                Welcome to PT. Systech Global Informasi (SGI Asia), your trusted partner in cybersecurity and IT solutions. Since 2013, we have been committed to delivering cutting-edge security, technology, and expertise to help organizations navigate the evolving digital landscape. We strive to provide innovative, tailored solutions that safeguard businesses and data. Thank you for choosing us—we look forward to securing your digital future.
+              </p>
             </div>
           </div>
 
-          <button class="arrow left" id="prev">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
-              <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
+          <div class="quote-card">
+            <div class="card-left">
+              <div class="leader-image-wrapper">
+                <img src="./assets/assets_4.png" alt="Anwar Anugerah" class="leader-image">
+              </div>
+              <div class="leader-details">
+                <div class="leader-name">Anwar Anugerah</div>
+                <div class="leader-title">Director</div>
+              </div>
+            </div>
+            <div class="card-right">
+              <div class="quote-icon">"</div>
+              <h2 class="quote-title">Director's Message</h2>
+              <p class="quote-text">
+                Cybersecurity is not just about defense—it's about resilience, trust, and staying ahead of evolving threats. We are dedicated to providing expert-driven solutions that help businesses safeguard their digital assets, ensure compliance, and strengthen their security posture. Through proactive strategies, continuous innovation, and a commitment to excellence, we empower organizations to operate with confidence in an increasingly complex cyber landscape.
+              </p>
+            </div>
+          </div>
 
-          <button class="arrow right" id="next">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none">
-              <path d="M9 6L15 12L9 18" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
-
-          <div class="indicators" id="indicators"></div>
         </div>
       </div>
-  </div>
+
+      <div class="carousel-controls">
+        <button class="nav-button" id="prevBtn">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M15 18L9 12L15 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <button class="nav-button" id="nextBtn">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M9 6L15 12L9 18" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="progress-indicators" id="indicators"></div>
+        <div class="counter"><span id="current">01</span> / <span id="total">02</span></div>
+      </div>
+    </div>
+  </section>
 
   <!-- Vision & Mission -->
   <section class="vision-mission" id="vismis">

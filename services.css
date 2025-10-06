@@ -711,6 +711,11 @@ body.menu-open {
   to { opacity: 1; transform: translateY(0);}
 }
 
+.service-grid.auto-scroll.paused {
+  animation-play-state: paused;
+}
+
+/* Training Section */
 .training {
   position: relative; 
   background: #f4f4f4;
