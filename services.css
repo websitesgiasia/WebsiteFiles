@@ -447,6 +447,26 @@ body.menu-open {
   padding: 0 100px;
 }
 
+.learn-more-btn {
+  margin-top: 1rem;
+  padding: 0.6rem 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.learn-more-btn:hover {
+  background: white;
+  color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 @keyframes scrollLeft {
   0% {
     transform: translateX(0%);
@@ -586,6 +606,11 @@ body.menu-open {
     top: -12px;
     left: -12px;
   }
+
+  .learn-more-btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+  }
 }
 
 @media (max-width: 576px) {
@@ -601,6 +626,11 @@ body.menu-open {
 
   .service-card p {
     font-size: 0.75rem;
+  }
+
+  .learn-more-btn {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
   }
 
   @keyframes scrollLeft {
