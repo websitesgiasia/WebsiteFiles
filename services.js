@@ -167,31 +167,45 @@ document.addEventListener("DOMContentLoaded", () => {
         "SOC Workforce": "SOC Workforce is a service that provides experts and training programs to build or strengthen a Security Operations Center (SOC). We ensure that organizations have a competent team, ready 24/7 to monitor, detect, and respond to cyber threats. This service covers recruitment, continuous training, and incident simulations, enabling organizations to maintain readiness and responsiveness to attacks optimally."
     };
 
+    let scrollX = 0;
+    let speed = 3; 
+    let animationId;
+
+    function animateScroll() {
+    scrollX -= speed;
+    serviceGrid.style.transform = `translateX(${scrollX}px)`;
+
+    if (Math.abs(scrollX) >= serviceGrid.scrollWidth / 2) {
+        scrollX = 0;
+    }
+
+    animationId = requestAnimationFrame(animateScroll);
+    }
+
+    animateScroll(); 
+
     learnMoreBtns.forEach(btn => {
-        btn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            const card = btn.closest(".service-card");
-            const title = card.querySelector("h3").innerText;
-            const desc = serviceDetails[title] || card.querySelector("p").innerText;
-
-            modalTitle.innerText = title;
-            modalDesc.innerText = desc;
-
-            modal.style.display = "block";
-            serviceGrid.classList.add("paused");
-        });
+    btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const card = btn.closest(".service-card");
+        const title = card.querySelector("h3").innerText;
+        const desc = serviceDetails[title] || card.querySelector("p").innerText;
+        modalTitle.innerText = title;
+        modalDesc.innerText = desc;
+        modal.style.display = "block";
+        speed = 1; 
+    });
     });
 
     closeBtn.onclick = () => { 
-        modal.style.display = "none"; 
-        serviceGrid.classList.remove("paused"); 
+    modal.style.display = "none"; 
+    speed = 3; 
     };
 
     window.onclick = (e) => { 
-        if (e.target == modal) {
-            modal.style.display = "none"; 
-            serviceGrid.classList.remove("paused"); 
-        }
+    if (e.target == modal) {
+        modal.style.display = "none"; 
+        speed = 3; 
+    }
     };
-
 });

@@ -435,8 +435,8 @@ body.menu-open {
   gap: 2rem;
   padding: 2rem;
   width: max-content;
-  animation: scrollLeft 40s linear infinite;
   margin-left: auto;
+  will-change: transform;
 }
 
 .scroll-wrapper {
@@ -667,7 +667,7 @@ body.menu-open {
 
 /* Modal */
 .modal {
-  display: none; /* Hidden by default */
+  display: none;
   position: fixed; 
   z-index: 999; 
   left: 0;
