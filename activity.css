@@ -156,7 +156,6 @@ nav.scrolled .hamburger span {
   transform: translateX(-50%) rotate(-45deg);
 }
 
-/* Mobile Menu */
 .off-screen-menu {
   display: flex;
   flex-direction: column;

@@ -2,10 +2,10 @@ let currentIndex = 0;
 const slidesWrapper = document.querySelector('.slides-wrapper');
 const dots = document.querySelectorAll('.dot');
 const totalSlides = dots.length;
+let autoSlideInterval;
 
 function showSlide(index) {
   slidesWrapper.style.transform = `translateX(-${index * 100}vw)`;
-
   dots.forEach((dot, i) => {
     dot.classList.remove('active');
     if (i === index) {
@@ -19,7 +19,30 @@ function nextSlide() {
   showSlide(currentIndex);
 }
 
-setInterval(nextSlide, 4000);
+function startAutoSlide() {
+  autoSlideInterval = setInterval(nextSlide, 4000);
+}
+
+function stopAutoSlide() {
+  clearInterval(autoSlideInterval);
+}
+
+function restartAutoSlide() {
+  stopAutoSlide();
+  startAutoSlide();
+}
+
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    currentIndex = index;
+    showSlide(currentIndex);
+    restartAutoSlide(); 
+  });
+  
+  dot.style.cursor = 'pointer';
+});
+
+startAutoSlide();
 
 const faqs = document.querySelectorAll('.faq-item');
 
