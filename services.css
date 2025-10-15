@@ -1086,14 +1086,14 @@ body.menu-open {
 .client-section {
   background: #ffffff;
   border-radius: 20px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
   padding: 2rem 2rem;
   margin-bottom: 2.5rem;
   transition: box-shadow 0.3s ease;
 }
 
 .client-section:hover {
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
 }
 
 .client-section h3 {

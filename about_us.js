@@ -5,7 +5,6 @@ const nextBtn = document.getElementById('nextBtn');
 const indicatorsContainer = document.getElementById('indicators');
 const currentSpan = document.getElementById('current');
 const totalSpan = document.getElementById('total');
-
 let currentIndex = 0;
 let touchStartX = 0;
 let touchEndX = 0;
@@ -17,49 +16,77 @@ function createIndicators() {
     const bar = document.createElement('div');
     bar.className = 'progress-bar';
     if (i === 0) bar.classList.add('active');
-    
     const fill = document.createElement('div');
     fill.className = 'progress-fill';
     bar.appendChild(fill);
-    
-    bar.addEventListener('click', () => goToSlide(i));
+    bar.addEventListener('click', () => {
+      const direction = i > currentIndex ? 'next' : 'prev';
+      goToSlide(i, direction);
+    });
     indicatorsContainer.appendChild(bar);
   });
 }
 
-function updateCarousel() {
+function updateCarousel(direction = 'next') {
   track.style.transform = `translateX(-${currentIndex * 100}%)`;
   
   cards.forEach((card, i) => {
-    card.classList.toggle('active', i === currentIndex);
+    card.classList.remove('active', 'slide-from-left', 'slide-from-right', 'slide-out-left', 'slide-out-right');
+    
+    if (i === currentIndex) {
+      if (direction === 'next') {
+        card.classList.add('slide-from-right');
+      } else {
+        card.classList.add('slide-from-left');
+      }
+      
+      setTimeout(() => {
+        card.classList.add('active');
+        card.classList.remove('slide-from-left', 'slide-from-right');
+      }, 50);
+    }
   });
 
   document.querySelectorAll('.progress-bar').forEach((bar, i) => {
-    bar.classList.toggle('active', i === currentIndex);
+    if (i === currentIndex) {
+      bar.classList.remove('shrink-left', 'shrink-right');
+      bar.classList.add('active');
+      if (direction === 'prev') {
+        bar.classList.add('animate-left');
+      } else {
+        bar.classList.add('animate-right');
+      }
+    } else {
+      bar.classList.remove('active', 'animate-left', 'animate-right');
+      if (direction === 'prev') {
+        bar.classList.add('shrink-right');
+      } else {
+        bar.classList.add('shrink-left');
+      }
+    }
   });
 
   currentSpan.textContent = String(currentIndex + 1).padStart(2, '0');
-
   prevBtn.disabled = currentIndex === 0;
   nextBtn.disabled = currentIndex === cards.length - 1;
 }
 
-function goToSlide(index) {
+function goToSlide(index, direction = 'next') {
   currentIndex = Math.max(0, Math.min(index, cards.length - 1));
-  updateCarousel();
+  updateCarousel(direction);
 }
 
 prevBtn.addEventListener('click', () => {
   if (currentIndex > 0) {
     currentIndex--;
-    updateCarousel();
+    updateCarousel('prev');
   }
 });
 
 nextBtn.addEventListener('click', () => {
   if (currentIndex < cards.length - 1) {
     currentIndex++;
-    updateCarousel();
+    updateCarousel('next');
   }
 });
 
@@ -79,25 +106,26 @@ function handleSwipe() {
   if (Math.abs(diff) > swipeThreshold) {
     if (diff > 0 && currentIndex < cards.length - 1) {
       currentIndex++;
+      updateCarousel('next');
     } else if (diff < 0 && currentIndex > 0) {
       currentIndex--;
+      updateCarousel('prev');
     }
-    updateCarousel();
   }
 }
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowLeft' && currentIndex > 0) {
     currentIndex--;
-    updateCarousel();
+    updateCarousel('prev');
   } else if (e.key === 'ArrowRight' && currentIndex < cards.length - 1) {
     currentIndex++;
-    updateCarousel();
+    updateCarousel('next');
   }
 });
 
 createIndicators();
-updateCarousel();
+updateCarousel('next');
 
 document.addEventListener("DOMContentLoaded", function () {
   const sections = document.querySelectorAll("#about ,#achievements, #timeline, #quote, #vismis");
