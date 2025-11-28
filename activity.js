@@ -113,123 +113,114 @@ const activities = [
   }
 ];
 
-const container = document.getElementById('activitiesContainer');
+const grid = document.getElementById('activitiesGrid');
 const categoryFilter = document.getElementById('categoryFilter');
 const yearFilter = document.getElementById('yearFilter');
 const locationFilter = document.getElementById('locationFilter');
+const resultsCount = document.getElementById('resultsCount');
 
 function hasIncompleteInfo(activity) {
-  return activity.location.includes('-') || 
-         activity.date.includes('-') || 
-         activity.year.includes('-');
+    return activity.location.includes('-') || 
+            activity.date.includes('-') || 
+            activity.year.includes('-');
 }
 
 function renderActivities(data) {
-  container.innerHTML = '';
+    grid.innerHTML = '';
 
-  const showingAll = categoryFilter.value === '' && 
-                    yearFilter.value === '' && 
-                    locationFilter.value === '';
-  
-  if (data.length === 0) {
-    container.innerHTML = '<p>No activities match your filters.</p>';
-    return;
-  }
-
-  const completeActivities = data.filter(act => !hasIncompleteInfo(act));
-  const incompleteActivities = data.filter(act => hasIncompleteInfo(act));
-
-  let index = 0;
-
-  if (showingAll) {
-    completeActivities.forEach((act) => {
-      const card = document.createElement('div');
-      card.className = 'event-card';
-      card.style.animationDelay = `${index * 100}ms`; 
-      card.innerHTML = `
-        <img src="${act.image}" alt="event image" class="event-image" />
-        <div class="event-info">
-          <div class="event-meta">
-          <p class="event-location"><i class="fa fa-map-marker-alt"></i> ${act.location}</p>
-          <span class="event-date"><i class="fa fa-calendar-alt"></i> ${act.date}</span>
-        </div>
-          <h3>${act.title}</h3>
-          <div class="tag-wrapper">
-            <button class="tag ${act.category}">${act.category}</button>
-            </div>
-        </div>`;
-      container.appendChild(card);
-      index++;
-    });
-
-    if (incompleteActivities.length > 0) {
-      const separator = document.createElement('div');
-      separator.className = 'others-separator';
-      separator.innerHTML = `
-        <div class="separator-line"></div>
-        <span class="separator-text">Others</span>
-        <div class="separator-line"></div>
-      `;
-      container.appendChild(separator);
-
-      incompleteActivities.forEach((act) => {
-        const card = document.createElement('div');
-        card.className = 'event-card';
-        card.style.animationDelay = `${index * 100}ms`; 
-        card.innerHTML = `
-          <img src="${act.image}" alt="event image" class="event-image" />
-          <div class="event-info">
-            <div class="event-meta">
-            </div>
-            <h3>${act.title}</h3>
-            <div class="tag-wrapper">
-              <button class="tag ${act.category}">${act.category}</button>
-              </div>
-          </div>`;
-        container.appendChild(card);
-        index++;
-      });
+    const showingAll = categoryFilter.value === '' && 
+                      yearFilter.value === '' && 
+                      locationFilter.value === '';
+    
+    if (data.length === 0) {
+        grid.innerHTML = '<div class="no-results">No activities match your filters</div>';
+        return;
     }
-  } else {
-    data.forEach((act) => {
-      const card = document.createElement('div');
-      card.className = 'event-card';
-      card.style.animationDelay = `${index * 100}ms`; 
 
-      const locationDisplay = hasIncompleteInfo(act) && act.location.includes('-') ? 
-        '' : `<p class="event-location"><i class="fa fa-map-marker-alt"></i> ${act.location}</p>`;
-      const dateDisplay = hasIncompleteInfo(act) && act.date.includes('-') ? 
-        '' : `<span class="event-date"><i class="fa fa-calendar-alt"></i> ${act.date}</span>`;
-      
-      card.innerHTML = `
-        <img src="${act.image}" alt="event image" class="event-image" />
-        <div class="event-info">
-          <div class="event-meta">
-          ${locationDisplay}
-          ${dateDisplay}
-        </div>
-          <h3>${act.title}</h3>
-          <div class="tag-wrapper">
-            <button class="tag ${act.category}">${act.category}</button>
+    const completeActivities = data.filter(act => !hasIncompleteInfo(act));
+    const incompleteActivities = data.filter(act => hasIncompleteInfo(act));
+
+    const activitiesToShow = showingAll ? completeActivities : data;
+
+    activitiesToShow.forEach((activity, index) => {
+        const card = document.createElement('div');
+        card.className = 'activity-card';
+        card.style.animationDelay = `${index * 50}ms`;
+
+        const metaHtml = (!activity.location.includes('-') || !activity.date.includes('-')) ? `
+            <div class="activity-meta">
+                ${!activity.location.includes('-') ? `
+                    <div class="meta-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>${activity.location}</span>
+                    </div>
+                ` : ''}
+                ${!activity.date.includes('-') ? `
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>${activity.date}</span>
+                    </div>
+                ` : ''}
             </div>
-        </div>`;
-      container.appendChild(card);
-      index++;
+        ` : '';
+
+        card.innerHTML = `
+            <img src="${activity.image}" alt="${activity.title}" class="activity-image">
+            <div class="activity-content">
+                ${metaHtml}
+                <h3 class="activity-title">${activity.title}</h3>
+                <span class="activity-tag tag-${activity.category}">${activity.category}</span>
+            </div>
+        `;
+
+        grid.appendChild(card);
     });
-  }
+
+    if (showingAll && incompleteActivities.length > 0) {
+        const separator = document.createElement('div');
+        separator.className = 'separator';
+        separator.innerHTML = `
+            <div class="separator-line"></div>
+            <span class="separator-text">Others</span>
+            <div class="separator-line"></div>
+        `;
+        grid.appendChild(separator);
+
+        incompleteActivities.forEach((activity, index) => {
+            const card = document.createElement('div');
+            card.className = 'activity-card';
+            card.style.animationDelay = `${(activitiesToShow.length + index) * 50}ms`;
+
+            card.innerHTML = `
+                <img src="${activity.image}" alt="${activity.title}" class="activity-image">
+                <div class="activity-content">
+                    <h3 class="activity-title">${activity.title}</h3>
+                    <span class="activity-tag tag-${activity.category}">${activity.category}</span>
+                </div>
+            `;
+
+            grid.appendChild(card);
+        });
+    }
 }
 
 function filterActivities() {
-  const cat = categoryFilter.value;
-  const year = yearFilter.value;
-  const loc = locationFilter.value.toLowerCase();
+    const cat = categoryFilter.value;
+    const year = yearFilter.value;
+    const loc = locationFilter.value.toLowerCase();
 
-  const filtered = activities.filter(act =>
-    (cat === '' || act.category === cat) &&
-    (year === '' || act.year === year) &&
-    (loc === '' || act.location.toLowerCase().includes(loc))
-  );
-  renderActivities(filtered);
+    const filtered = activities.filter(act =>
+        (cat === '' || act.category === cat) &&
+        (year === '' || act.year === year) &&
+        (loc === '' || act.location.toLowerCase().includes(loc))
+    );
+
+    renderActivities(filtered);
+    updateResultsCount(filtered.length);
+}
+
+function updateResultsCount(count) {
+    resultsCount.textContent = `${count} ${count === 1 ? 'result' : 'results'}`;
 }
 
 categoryFilter.addEventListener('change', filterActivities);
@@ -237,6 +228,7 @@ yearFilter.addEventListener('change', filterActivities);
 locationFilter.addEventListener('change', filterActivities);
 
 renderActivities(activities);
+updateResultsCount(activities.length);
 
 document.addEventListener("DOMContentLoaded", function () {
   const nav = document.querySelector("nav");

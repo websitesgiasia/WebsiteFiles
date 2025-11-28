@@ -60,38 +60,55 @@
     </div> 
   </nav>
 
-
-  <!-- Events Section -->
-  <section class="activities-section">
-    <div class="activities-top">
-    <h2>All Activities</h2>
-      <div class="filters">
-          <select id="categoryFilter">
-            <option value="">All Categories</option>
-            <option value="seminar">Seminar</option>
-            <option value="program">Program</option>
-            <option value="partnership">Partnership</option>
-            <option value="training">Training</option>
-            <option value="expo">Expo</option>
-          </select>
-
-          <select id="yearFilter">
-            <option value="">All Years</option>
-            <option value="2017">2017</option>
-            <option value="2018">2018</option>
-            <option value="2024">2024</option>
-          </select>
-
-          <select id="locationFilter">
-            <option value="">All Locations</option>
-            <option value="indonesia">Indonesia</option>
-            <option value="philippine">Philippine</option>
-          </select>
+  <!-- Header Section -->
+  <div class="page-header">
+      <div class="header-content">
+          <h1>All Activities</h1>
+          <p>Explore our comprehensive portfolio of security initiatives, training programs, and industry partnerships</p>
       </div>
-    </div>
-    <hr class="line">
-    <div class="cards-container" id="activitiesContainer"></div>
-  </section>
+  </div>
+
+  <!-- Filters -->
+  <div class="filters-section">
+      <div class="filters-container">
+          <div class="filters-group">
+              <select id="categoryFilter" class="filter-select">
+                  <option value="">All Categories</option>
+                  <option value="seminar">Seminar</option>
+                  <option value="program">Program</option>
+                  <option value="partnership">Partnership</option>
+                  <option value="training">Training</option>
+                  <option value="expo">Expo</option>
+              </select>
+
+              <select id="yearFilter" class="filter-select">
+                  <option value="">All Years</option>
+                  <option value="2017">2017</option>
+                  <option value="2018">2018</option>
+                  <option value="2024">2024</option>
+              </select>
+
+              <select id="locationFilter" class="filter-select">
+                  <option value="">All Locations</option>
+                  <option value="indonesia">Indonesia</option>
+                  <option value="philippine">Philippines</option>
+              </select>
+
+              <button id="clearBtn" class="clear-btn">
+                  <i class="fas fa-times"></i>
+                  Clear
+              </button>
+          </div>
+
+          <div id="resultsCount" class="results-count"></div>
+      </div>
+  </div>
+
+  <!-- Activities Section -->
+  <div class="activities-section">
+      <div id="activitiesGrid" class="activities-grid"></div>
+  </div>
+
 
 <!-- Partners Section -->
     <section class="partners">
