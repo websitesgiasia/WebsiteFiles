@@ -1591,7 +1591,7 @@ body.menu-open::after {
   font-weight: 600;
 }
 
-.container {
+.quote-container {
   max-width: 1300px;
   margin: 0 auto;
   padding-left: 60px;
@@ -2040,15 +2040,15 @@ body.menu-open::after {
 
 /* Partners Section */
 .partners {
-  background-color: #F2F2F2;
-  padding: 20px 0;
-  text-align: center;
+    background-color: #F2F2F2;
+    padding: 20px 0;
+    text-align: center;
 }
 
 .partners h2 {
-  margin-bottom: 50px;
-  color: #333;
-  font-family: "Inria Sans";
+    margin-bottom: 50px;
+    color: #333;
+    font-family: "Inria Sans";
 }
 
 .container h2{
