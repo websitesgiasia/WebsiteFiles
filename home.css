@@ -2053,78 +2053,108 @@ body.menu-open::after {
 
 /* Partners Section */
 .partners {
-    background-color: #F2F2F2;
-    padding: 20px 0;
-    text-align: center;
+  background-color: #FAFAFA;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.partners .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .partners h2 {
-    margin-bottom: 50px;
-    color: #333;
-    font-family: "Inria Sans";
-}
-
-.container h2{
-  font-size: 20px;
+  margin-bottom: 12px;
+  color: #333;
   font-family: 'Montserrat', sans-serif;
-  font-style: normal;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
 }
 
 .partners h2::after {
   content: "";
   display: block;
-  margin: 0px auto 0;
-  width: 60px;
+  margin: 10px auto 0;
+  width: 45px;
   height: 3px;
   background-color: #266EB6;
+  border-radius: 2px;
 }
 
 .partner-logos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 60px;
-  padding: 0 2rem;
   align-items: center;
+  gap: 150px;
+  margin-top: 30px;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.partner-logos a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.partner-logos a:hover {
+  opacity: 0.75;
 }
 
 .partner-logos img {
   height: 42px;
+  width: auto;
   object-fit: contain;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  max-width: 100%;
-}
-
-.partner-logos img:hover {
-  transform: scale(1.05);
-  filter: grayscale(20%);
-}
-
-@media (max-width: 1024px) {
-  .partner-logos {
-    gap: 40px;
-  }
+  max-width: 150px;
+  filter: grayscale(0%);
 }
 
 @media (max-width: 768px) {
-  .partner-logos {
-    gap: 30px;
-    padding: 0 1.2rem;
+  .partners {
+    padding: 35px 0;
   }
-
+  
+  .partners h2 {
+    font-size: 19px;
+  }
+  
+  .partner-logos {
+    gap: 36px;
+    margin-top: 26px;
+  }
+  
   .partner-logos img {
-    height: 36px;
+    height: 38px;
+    max-width: 130px;
   }
 }
 
 @media (max-width: 480px) {
-  .partner-logos {
-    gap: 24px;
-    padding: 0 1rem;
+  .partners {
+    padding: 30px 0;
   }
-
+  
+  .partners .container {
+    padding: 0 1.5rem;
+  }
+  
+  .partners h2 {
+    font-size: 18px;
+  }
+  
+  .partner-logos {
+    gap: 30px;
+    margin-top: 24px;
+  }
+  
   .partner-logos img {
-    height: 30px;
+    height: 34px;
+    max-width: 110px;
   }
 }
 

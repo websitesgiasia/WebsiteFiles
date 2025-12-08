@@ -66,7 +66,6 @@ faqs.forEach(faq => {
   });
 });
 
-
 document.addEventListener("DOMContentLoaded", function () {
   const sections = document.querySelectorAll("#contact, #awards, #about, #why-choose, #testimonial, #faq");
   const observer = new IntersectionObserver((entries, observer) => {
@@ -160,4 +159,52 @@ dot.forEach(dot => {
         const index = parseInt(dot.dataset.index);
         updateTestimonial(index);
     });
+});
+
+window.addEventListener('load', function() {
+  emailjs.init("GKRcf7iNb2u_dnHS_"); 
+
+  const contactForm = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+
+  function showToast(message, type = "success") {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.className = `toast show ${type}`;
+    setTimeout(() => {
+      toast.classList.remove('show');
+      setTimeout(() => {
+        toast.className = 'toast hidden';
+      }, 1800);
+    }, 3000);
+  }
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const captchaResponse = grecaptcha.getResponse();
+      if (!captchaResponse) {
+        showToast("Please complete the reCAPTCHA before submitting.", "error");
+        return; 
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending, please wait...";
+
+      emailjs.sendForm('service_d4n8rgs', 'template_hdn79e5', this)
+        .then(() => {
+          showToast("Message sent successfully! We will reach out to you soon!", "success");
+          grecaptcha.reset();
+        })
+        .catch(() => {
+          showToast("Failed to send message. Please try again.", "error");
+        })
+        .finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "SEND MESSAGE";
+          contactForm.reset();
+        });
+    });
+  }
 });

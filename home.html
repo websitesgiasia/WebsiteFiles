@@ -311,11 +311,12 @@
         <div class="faq-col">
           <div class="faq-item">
             <div class="faq-question">
-              <span>Who is SGI Asia?</span>
+              <span>What is SGI Asia?</span>
               <span class="faq-icon">+</span>
             </div>
             <div class="faq-answer">
-              SGI Asia (PT. Systech Global Informasi) is a cybersecurity and IT services company with more than 10 years of experience in protecting businesses and organizations through security solutions, training, and consultancy.
+              SGI Asia (PT. SysTech Global Informasi) is a cybersecurity and IT consulting company based in Jakarta, Indonesia, 
+              specializing in delivering end-to-end security services, professional training, and technical implementation support for organizations that require strong protection and security readiness.
             </div>
           </div>
 
@@ -343,11 +344,29 @@
 
           <div class="faq-item">
             <div class="faq-question">
-              <span>How can I contact SGI Asia?</span>
+              <span>What cybersecurity services does SGI Asia provide?</span>
               <span class="faq-icon">+</span>
             </div>
             <div class="faq-answer">
-              You can reach out to SGI Asia via phone, WhatsApp, or through the contact form on the website. SGI Asia’s office is located in Jakarta Selatan.
+              SGI Asia provides a wide range of cybersecurity services, including penetration testing or ethical hacking, 
+              vulnerability assessment, secure code review, secure software development consulting, digital forensics, 
+              data recovery, cybersecurity implementation assistance, professional training programs, virtual labs for hands-on security skills, 
+              and managed security monitoring services delivered through trusted partners.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-col">
+          <div class="faq-item">
+            <div class="faq-question">
+              <span>What sets SGI Asia apart from other cybersecurity companies?</span>
+              <span class="faq-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              SGI Asia stands out through its comprehensive range of cybersecurity services, strong technical expertise, 
+              and the use of industry-standard frameworks. As an authorized CompTIA partner, 
+              SGI Asia also provides recognized training supported by practical virtual labs. 
+              With experience serving enterprise-level clients, SGI Asia delivers reliable, scalable, and hands-on cybersecurity solutions.
             </div>
           </div>
         </div>
@@ -356,23 +375,20 @@
 
     <!-- Partners Section -->
     <section class="partners">
-        <div class="container">
-            <h2>Our Partners</h2>
-            <div class="partner-logos">
-                <a href="https://itsecurityct.com" target="_blank"><img src="./Partners/Partner1.png" alt="IT Security"></a>
-                <a href="https://www.sysarmy.net" target="_blank"><img src="./Partners/Partner2.png" alt="SysArmy"></a>
-                <a href="https://www.multipolar.com/en/homepage/" target="_blank"><img src="./Partners/Partner3.png" alt="Multipolar"></a>
-                <a href="https://www.tuv.com/indonesia/en/" target="_blank"><img src="./Partners/Partner4.png" alt="TDW"></a>
-                <a href="https://www.gkphilippines.com" target="_blank"><img src="./Partners/Partner5.png" alt="Global KMC"></a>
-                <a href="https://activelearning.ph" target="_blank"><img src="./Partners/Partner6.png" alt="Active Learning"></a>
-                <a href="https://www.ishantech.net" target="_blank"><img src="./Partners/Partner7.png" alt="Ishan Tech"></a>
-                <a href="https://www.mybusybee.net/about-us/" target="_blank"><img src="./Partners/Partner8.png" alt="Busybee"></a>
-                <a href="https://www.maxvec.com" target="_blank"><img src="./Partners/Partner9.png" alt="MaxVec"></a>
-                <a href="https://www.securwires.com" target="_blank"><img src="./Partners/Partner10.png" alt="Secure Wires"></a>
-                <a href="https://solutions-it.net" target="_blank"><img src="./Partners/Partner11.png" alt="IT Solutions"></a>
-                <a href="https://euodoo.com.ph" target="_blank"><img src="./Partners/Partner12.png" alt="Euodoo Technologies"></a>
-            </div>
+      <div class="container">
+        <h2>In Partnership With</h2>
+        <div class="partner-logos">
+          <a href="https://www.comptia.org" target="_blank" rel="noopener">
+            <img src="./Partners/Comptia.png" alt="CompTIA">
+          </a>
+          <a href="https://www.mybusybee.net/about-us/" target="_blank" rel="noopener">
+            <img src="./Partners/Busybee.png" alt="Busybee">
+          </a>
+          <a href="https://euodoo.com.ph" target="_blank" rel="noopener">
+            <img src="./Partners/Euodoo.png" alt="Euodoo Technologies">
+          </a>
         </div>
+      </div>
     </section>
 
     <!-- Footer -->
@@ -427,53 +443,6 @@
         </div>
       </footer>
 
-    <script src="home.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-  (function() {
-    emailjs.init("GKRcf7iNb2u_dnHS_");
-  })();
-
-  const form = document.getElementById('contact-form');
-  const submitBtn = document.getElementById('submit-btn');
-
-  function showToast(message, type = "success") {
-    const toast = document.getElementById('toast');
-    toast.textContent = message;
-    toast.className = `toast show ${type}`;
-    setTimeout(() => {
-      toast.classList.remove('show');
-      setTimeout(() => {
-        toast.className = 'toast hidden';
-      }, 1800);
-    }, 3000);
-  }
-
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const captchaResponse = grecaptcha.getResponse();
-    if (!captchaResponse) {
-      showToast("Please complete the reCAPTCHA before submitting.", "error");
-      return; 
-    }
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Sending, please wait...";
-
-    emailjs.sendForm('service_d4n8rgs', 'template_hdn79e5', this)
-      .then(() => {
-        showToast("Message sent successfully! We will reach out to you soon!", "success");
-        grecaptcha.reset();
-      })
-      .catch(() => {
-        showToast("Failed to send message. Please try again.", "error");
-      })
-      .finally(() => {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "SEND MESSAGE";
-        form.reset();
-      });
-  });
-</script>
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="home.js"></script>
