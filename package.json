@@ -1,0 +1,8 @@
+{
+  "name": "sgi-website",
+  "version": "1.0.0",
+  "description": "SGI Asia Website",
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}

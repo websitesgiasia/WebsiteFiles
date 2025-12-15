@@ -162,8 +162,6 @@ dot.forEach(dot => {
 });
 
 window.addEventListener('load', function() {
-  emailjs.init("GKRcf7iNb2u_dnHS_"); 
-
   const contactForm = document.getElementById('contact-form');
   const submitBtn = document.getElementById('submit-btn');
 
@@ -180,7 +178,7 @@ window.addEventListener('load', function() {
   }
 
   if (contactForm) {
-    contactForm.addEventListener('submit', function(event) {
+    contactForm.addEventListener('submit', async function(event) {
       event.preventDefault();
 
       const captchaResponse = grecaptcha.getResponse();
@@ -192,19 +190,40 @@ window.addEventListener('load', function() {
       submitBtn.disabled = true;
       submitBtn.textContent = "Sending, please wait...";
 
-      emailjs.sendForm('service_d4n8rgs', 'template_hdn79e5', this)
-        .then(() => {
-          showToast("Message sent successfully! We will reach out to you soon!", "success");
-          grecaptcha.reset();
-        })
-        .catch(() => {
-          showToast("Failed to send message. Please try again.", "error");
-        })
-        .finally(() => {
-          submitBtn.disabled = false;
-          submitBtn.textContent = "SEND MESSAGE";
-          contactForm.reset();
+      try {
+        const formData = new FormData(this);
+        
+        const response = await fetch('/.netlify/functions/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: formData.get('name'),
+            phone: formData.get('phone'),
+            email: formData.get('email'),
+            subject: formData.get('subject'),
+            message: formData.get('message'),
+            captcha: captchaResponse
+          })
         });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          showToast("Message sent successfully! We will reach out to you soon!", "success");
+          contactForm.reset();
+          grecaptcha.reset();
+        } else {
+          showToast(data.error || "Failed to send message. Please try again.", "error");
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        showToast("Failed to send message. Please try again.", "error");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "SEND MESSAGE";
+      }
     });
   }
 });
