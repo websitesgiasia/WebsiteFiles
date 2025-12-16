@@ -283,8 +283,7 @@
         </div>
       </div>
 
-      <form name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true" class="contact-form">
-        <input type="hidden" name="form-name" value="contact" />
+      <form id="contact-form" class="contact-form">
         <input type="text" name="name" placeholder="Name / Company Name" required />
         <input type="tel" name="phone" placeholder="Phone Number" pattern="\d{7,15}" oninvalid="this.setCustomValidity('Please enter a valid phone number (7–15 digits).')"
             oninput="this.setCustomValidity('')"required />

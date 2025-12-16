@@ -1,8 +1,8 @@
 {
   "name": "sgi-website",
   "version": "1.0.0",
-  "description": "SGI Asia Website",
   "dependencies": {
+    "@emailjs/nodejs": "^4.0.3",
     "axios": "^1.6.0"
   }
 }
