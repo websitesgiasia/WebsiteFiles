@@ -2,7 +2,6 @@
   "name": "sgi-website",
   "version": "1.0.0",
   "dependencies": {
-    "@emailjs/nodejs": "^4.0.3",
-    "axios": "^1.6.0"
+    "resend": "^3.0.0"
   }
 }

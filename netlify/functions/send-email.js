@@ -1,5 +1,4 @@
-const emailjs = require('@emailjs/nodejs');
-const axios = require('axios');
+const { Resend } = require('resend');
 
 exports.handler = async (event) => {
   const headers = {
@@ -9,13 +8,8 @@ exports.handler = async (event) => {
   };
 
   if (event.httpMethod === 'OPTIONS') {
-    return {
-      statusCode: 200,
-      headers,
-      body: ''
-    };
+    return { statusCode: 200, headers, body: '' };
   }
-
 
   if (event.httpMethod !== 'POST') {
     return { 
@@ -30,7 +24,7 @@ exports.handler = async (event) => {
 
     console.log('Received form submission:', { name, email, subject });
 
-    if (!name || !email || !message || !captcha) {
+    if (!name || !email || !message) {
       return { 
         statusCode: 400,
         headers,
@@ -38,47 +32,64 @@ exports.handler = async (event) => {
       };
     }
 
-    console.log('Verifying reCAPTCHA...');
-    const captchaVerify = await axios.post(
-      'https://www.google.com/recaptcha/api/siteverify',
-      null,
-      {
-        params: {
-          secret: process.env.RECAPTCHA_SECRET_KEY,
-          response: captcha
-        }
+    if (captcha) {
+      console.log('Verifying reCAPTCHA...');
+      const captchaResponse = await fetch(
+        `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${captcha}`,
+        { method: 'POST' }
+      );
+      const captchaResult = await captchaResponse.json();
+      
+      if (!captchaResult.success) {
+        console.error('reCAPTCHA verification failed');
+        return { 
+          statusCode: 400,
+          headers,
+          body: JSON.stringify({ error: 'reCAPTCHA verification failed' }) 
+        };
       }
-    );
-
-    if (!captchaVerify.data.success) {
-      console.error('reCAPTCHA verification failed:', captchaVerify.data);
-      return { 
-        statusCode: 400,
-        headers,
-        body: JSON.stringify({ error: 'reCAPTCHA verification failed' }) 
-      };
+      console.log('reCAPTCHA verified successfully');
     }
 
-    console.log('reCAPTCHA verified successfully');
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
-    console.log('Sending email via EmailJS...');
-    const response = await emailjs.send(
-      process.env.EMAILJS_SERVICE_ID,
-      process.env.EMAILJS_TEMPLATE_ID,
-      {
-        from_name: name,
-        phone: phone || 'Not provided',
-        from_email: email,
-        subject: subject || 'No subject',
-        message: message
-      },
-      {
-        publicKey: process.env.EMAILJS_PUBLIC_KEY,
-        privateKey: process.env.EMAILJS_PRIVATE_KEY,
-      }
-    );
+    console.log('Sending email via Resend...');
+    const data = await resend.emails.send({
+      from: process.env.SENDER_EMAIL || 'onboarding@resend.dev',
+      to: process.env.RECIPIENT_EMAIL,
+      replyTo: email,
+      subject: `Contact Form: ${subject || 'No Subject'} - from ${name}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <h2 style="color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px;">
+            New Contact Form Submission
+          </h2>
+          
+          <div style="background: #f8f9fa; padding: 20px; border-radius: 5px; margin: 20px 0;">
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+            <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+            <p><strong>Subject:</strong> ${subject || 'No subject'}</p>
+          </div>
+          
+          <div style="margin: 20px 0;">
+            <p><strong>Message:</strong></p>
+            <div style="background: #fff; padding: 15px; border-left: 4px solid #007bff; white-space: pre-wrap;">
+${message}
+            </div>
+          </div>
+          
+          <hr style="border: none; border-top: 1px solid #ddd; margin: 30px 0;">
+          
+          <p style="color: #666; font-size: 12px;">
+            This email was sent from the contact form on sgiasia.com<br>
+            You can reply directly to this email to respond to ${name}
+          </p>
+        </div>
+      `
+    });
 
-    console.log('Email sent successfully:', response);
+    console.log('Email sent successfully:', data);
 
     return { 
       statusCode: 200,
@@ -88,11 +99,7 @@ exports.handler = async (event) => {
 
   } catch (error) {
     console.error('Error sending email:', error);
-    console.error('Error details:', {
-      message: error.message,
-      stack: error.stack,
-      response: error.response?.data
-    });
+    console.error('Error details:', error.message);
     
     return { 
       statusCode: 500,
