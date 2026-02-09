@@ -1928,6 +1928,14 @@ body.menu-open::after {
   margin: 0 auto;
   padding: 100px 40px;
   background: #ffffff;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+}
+
+.vision-mission.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .vm-title {

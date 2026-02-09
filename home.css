@@ -1167,6 +1167,14 @@ body.menu-open::after {
 .why-choose {
   background: #ffffff;
   padding: 6rem 2rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease-out;
+}
+
+.why-choose.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .why-choose-container {
