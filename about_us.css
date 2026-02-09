@@ -1924,116 +1924,177 @@ body.menu-open::after {
 
 /* Vision Mission */
 .vision-mission {
-  position: relative;
-  overflow: hidden;
-  padding: 60px 40px;
-  background-color: rgba(255, 255, 255, 0.85);
-  text-align: center;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.6s ease-out;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 100px 40px;
+  background: #ffffff;
 }
 
-.vision-mission.animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.vision-mission h2 {
-  font-size: 32px;
-  color: #1a237e;
-  margin-bottom: 60px;
-}
-
-.vision-mission .highlight {
-  color: #3b5bdb;
-}
-
-.vision-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  justify-content: center;
-  max-width: 650px;
-}
-
-.vision-wrapper {
-  position: relative;
-}
-
-.vision-shadow {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(224 242 255)  ;
-  border-radius: 6px;
-  z-index: 0;
-}
-
-.vision-box {
-  background-color: #1a4bb8;
-  color: white;
-  padding: 20px;
-  border-radius: 6px;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-  text-align: left;
-  width: auto;
-  height: 180px;
-  position: relative;
-  z-index: 1;
-}
-
-.box-number {
-  background-color: white;
+.vm-title {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   color: #1a4bb8;
-  font-weight: bold;
-  display: inline-block;
-  padding: 5px 10px;
-  border-radius: 3px;
-  margin-bottom: 10px;
+  margin-bottom: 60px;
+  position: relative;
+  text-align: center;
 }
 
-.bottom-image {
+.vm-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  margin-bottom: 120px;
+}
+
+.vm-section {
+  position: relative;
+}
+
+.vm-label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 24px;
+}
+
+.vm-heading {
+  font-size: 48px;
+  font-weight: 300;
+  line-height: 1.2;
+  color: #0f172a;
+  margin-bottom: 32px;
+  letter-spacing: -1px;
+}
+
+.vm-heading strong {
+  font-weight: 700;
+  color: #1a4bb8;
+}
+
+.vm-text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #475569;
+  font-weight: 400;
+}
+
+.mission-points {
+  list-style: none;
+  margin-top: 40px;
+}
+
+.mission-points li {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #475569;
+  margin-bottom: 24px;
+  padding-left: 40px;
+  position: relative;
+}
+
+.mission-points li::before {
+  content: '';
   position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-bottom: 25px;
-  z-index: 0;
+  left: 0;
+  top: 10px;
+  width: 24px;
+  height: 2px;
+  background: #1a4bb8;
 }
 
-.bottom-left-image {
-  width: 1000px;
-  max-height: 450px; 
-  border-radius: 20px;
+.principles-section {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 80px;
+}
+
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px;
+  margin-top: 60px;
+}
+
+.principle {
+  position: relative;
+}
+
+.principle-number {
+  font-size: 72px;
+  font-weight: 700;
+  color: #f1f5f9;
+  line-height: 1;
+  margin-bottom: 16px;
+  letter-spacing: -2px;
+}
+
+.principle-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+.principle-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #64748b;
+}
+
+.accent-line {
+  position: absolute;
+  left: 40px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, #1a4bb8 0%, transparent 100%);
+  opacity: 0.2;
+}
+
+@media (max-width: 1024px) {
+  .vm-grid {
+    gap: 60px;
+  }
+
+  .principles-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
 }
 
 @media (max-width: 768px) {
   .vision-mission {
-    padding: 40px 20px; 
+    padding: 60px 20px;
   }
 
-  .vision-mission h2 {
-    font-size: 28px; 
-    margin-bottom: 30px;
+  .vm-title {
+    font-size: 20px;
+    text-align: center;
   }
 
-  .vision-grid {
-    grid-template-columns: 1fr; 
-    gap: 20px; 
-    max-width: 100%; 
+  .vm-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    margin-bottom: 80px;
   }
 
-  .vision-box {
-    height: auto; 
-    padding: 15px; 
+  .vm-heading {
+    font-size: 36px;
   }
 
-  .bottom-image {
-    position: static; 
-    width: 100%;
-    margin-top: 30px; 
+  .vm-text {
+    font-size: 16px;
+  }
+
+  .principles-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .accent-line {
     display: none;
   }
 }

@@ -1411,8 +1411,8 @@ body.menu-open::after {
 
 /* Clients Section */
 .clients {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 1400px;
+  margin: 0 auto 5rem;
   padding: 1rem 2rem;
   opacity: 0;
   transform: translateY(50px);
@@ -1422,13 +1422,6 @@ body.menu-open::after {
 .clients.animate {
   opacity: 1;
   transform: translateY(0);
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .clients h2 {
@@ -1450,12 +1443,28 @@ body.menu-open::after {
   border-radius: 2px;
 }
 
+.clients-intro {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  line-height: 1.6;
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
 .client-section {
   background: #ffffff;
   border-radius: 20px;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
-  padding: 2rem 2rem;
-  margin-bottom: 2.5rem;
+  padding: 1rem;
+  height: 100%;
   transition: box-shadow 0.3s ease;
 }
 
@@ -1487,15 +1496,15 @@ body.menu-open::after {
 
 .client-logos-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
   justify-items: center;
   align-items: center;
 }
 
 .client-logos-wrapper img {
   width: 100%;
-  max-width: 140px;
+  max-width: 160px;
   height: 80px;
   object-fit: contain;
   padding: 1rem;
@@ -1537,6 +1546,17 @@ body.menu-open::after {
   border-color: #0077b6;
 }
 
+@media (max-width: 1024px) {
+  .clients-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .client-logos-wrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .clients {
     padding: 3rem 1.5rem;
@@ -1549,7 +1569,7 @@ body.menu-open::after {
 
   .client-section {
     padding: 2rem 1.5rem;
-    margin-bottom: 2rem;
+    height: 95%;
   }
 
   .client-section h3 {
@@ -1558,7 +1578,7 @@ body.menu-open::after {
   }
 
   .client-logos-wrapper {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
 
@@ -1570,7 +1590,7 @@ body.menu-open::after {
 
 @media (max-width: 480px) {
   .clients {
-    padding: 1rem 1rem;
+    padding: 2rem 1rem;
   }
 
   .clients h2 {
@@ -1580,7 +1600,6 @@ body.menu-open::after {
 
   .client-section {
     padding: 1.5rem 1rem;
-    margin-bottom: 1.5rem;
     border-radius: 16px;
   }
 
