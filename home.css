@@ -551,11 +551,12 @@ body.menu-open::after {
 }
 
 .right {
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .right p {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   color: #e0dfdf;
   line-height: 1.6;
@@ -820,8 +821,9 @@ body.menu-open::after {
 .about-content h2 {
   font-size: 40px;
   color: #0f172a;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
   margin-bottom: 24px;
-  font-weight: 700;
   letter-spacing: -0.02em;
   position: relative;
   display: inline-block;
@@ -841,6 +843,8 @@ body.menu-open::after {
 .about-content p {
   color: #475569;
   font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
   line-height: 1.8;
   margin-bottom: 32px;
   margin-top: 32px;
@@ -908,6 +912,7 @@ body.menu-open::after {
 .stat-box p {
   color: #64748b;
   font-size: 14px;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
   font-weight: 500;
 }
@@ -1011,7 +1016,9 @@ body.menu-open::after {
 
 .awards h2 {
   position: relative;
-  font-size: 28px;
+  font-size: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
   z-index: 1;
 }
 
@@ -1088,6 +1095,8 @@ body.menu-open::after {
 .award-card-static .caption {
   font-size: 14px;
   color: #333;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
   line-height: 1.5;
   word-break: break-word;
 }
@@ -1182,21 +1191,24 @@ body.menu-open::after {
   margin: 0 auto;
 }
 
-.section-header {
+.why-choose-header {
   text-align: center;
   margin-bottom: 4rem;
 }
 
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 600;
+.why-choose-title {
+  font-size: 3rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
   color: #1a1a1a;
   margin-bottom: 1rem;
 }
 
-.section-subtitle {
+.why-choose-subtitle {
   font-size: 1.1rem;
   color: #666;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
@@ -1241,6 +1253,8 @@ body.menu-open::after {
 
 .reason-description {
   font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
   line-height: 1.6;
   color: #555;
 }
@@ -1256,15 +1270,15 @@ body.menu-open::after {
       padding: 4rem 1.5rem;
   }
 
-  .section-header {
+  .why-choose-header {
       margin-bottom: 3rem;
   }
 
-  .section-title {
+  .why-choose-title {
       font-size: 2rem;
   }
 
-  .section-subtitle {
+  .why-choose-subtitle {
       font-size: 1rem;
   }
 
@@ -1297,7 +1311,7 @@ body.menu-open::after {
       padding: 3rem 1rem;
   }
 
-  .section-title {
+  .why-choose-title {
       font-size: 1.75rem;
   }
 }
@@ -1383,6 +1397,8 @@ body.menu-open::after {
 
 .quote {
   font-size: 1.05rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
   line-height: 1.6;
   color: #333;
   position: relative;
@@ -1851,7 +1867,9 @@ body.menu-open::after {
 
 /* FAQ Section */
 #faq {
-  font-family: Arial, sans-serif;
+  font-size: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
   padding: 10px 40px;
   background: #fff;
   opacity: 0;
@@ -1867,8 +1885,8 @@ body.menu-open::after {
 #faq h2 {
   font-size: 2rem;
   font-family: 'Montserrat', sans-serif;
-  margin-bottom: 20px;
   font-weight: 300;
+  margin-bottom: 20px;
   text-align: center;
   color: #333;
   position: relative;
@@ -1928,8 +1946,9 @@ body.menu-open::after {
   align-items: center;
   cursor: pointer;
   padding: 15px 20px;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
   transition: background 0.3s;
   background-color: #f4f4f4;
 }
@@ -1961,6 +1980,8 @@ body.menu-open::after {
 
 .faq-item.active .faq-answer {
   padding: 15px 20px;
+  font-size: 0.9rem;
+  text-align: justify;
   background: #fdfdfd;
 }
 
